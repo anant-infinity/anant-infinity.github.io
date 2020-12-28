@@ -22,5 +22,4 @@ below, which makes it easy for the user to covert raw data packets for analysis:
 
 The software was developed with a modular design so that it can be extended
 to decode telemetry for other small satellite missions. The telemetry decoding 
-application can be found at the following repository: [INSPIRESat-1 Telemetry Decoder](https:
-//github.com/anant-infinity/IS1_Temeletry_Decoding.git).
+application can be found at the following repository: [INSPIRESat-1 Telemetry Decoder](https://github.com/anant-infinity/IS1_Temeletry_Decoding.git).
