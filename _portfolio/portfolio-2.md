@@ -1,6 +1,6 @@
 ---
 title: "Satellite Telemetry Decoder"
-excerpt: "Short description of portfolio item number 2<br/><img src='/images/IS_decoder.jpg'>"
+excerpt: "<img src='/images/IS_decoder.jpg'>"
 collection: portfolio
 ---
 
