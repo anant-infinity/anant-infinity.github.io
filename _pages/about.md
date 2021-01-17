@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-My name is Anant, I hold a bachelor’s degree in Electronics and Communication Engineering (Avionics) from the Indian Institute of Space Science and Technology (IIST). I have been offered a job as Scientist/Engineer-C at the Indian Space Research Organization, and will be joining in January 2021.
+My name is Anant, and I'm currently working as a Scientist/Engineer-C in the Assembly, Integration and Testing (AIT) division of the Human Space Flight Center of the Indian Space Research Organization. I hold a bachelor’s degree in Electronics and Communication Engineering (Avionics) from the Indian Institute of Space Science and Technology (IIST). 
 
 I was a sponsored intern at the Laboratory for Atmospheric and Space Physics (LASP) in Boulder USA, and I did my Bachelor’s thesis at Nanyang Technological University (NTU), Singapore. At IIST, LASP, and NTU, I have worked on the design and development of multiple small satellite missions. 
 
