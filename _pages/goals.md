@@ -34,7 +34,7 @@ points - objectives, analysis and conclusions.
 For working towards my Academic Goals, I took proactive steps to present my research as well as submit conference abstracts/journal articles. During the duration of this course, I have presented at two conferences, submitted 3 abstracts, and also co-authored
 a journal publication. Below are my aritfacts, a picture of me presenting at the DASP conference, as well as my abstract notification email for SPD54 and AGU23.
 
-![Learning Artifacts](/files/artifact.PNG?raw=true "Learning Artifact")
+![Learning Artifacts](/files/artifact.png?raw=true "Learning Artifact")
 
 ## Personal 1 (Skills Domain(s) - Intrapersonal Skills, Wellness and life balance, Intercultural competence):
 
