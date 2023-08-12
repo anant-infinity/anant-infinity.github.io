@@ -3,13 +3,18 @@ main:
   - title: "Projects"
     url: /portfolio/
 
-  - title: "Blog Posts"
+  - title: "Curriculum Vitae"
+    url: /cv/
+
+  - title: "Learning Goals"
     url: /year-archive/
 
-  - title: "Publications"
+  - title: "Poster"
+    url: /publications/
+
+  - title: "Reflective Essay"
     url: /publications/
     
-  - title: "CV"
-    url: /cv/
+  
     
 
