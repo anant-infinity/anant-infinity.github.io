@@ -9,5 +9,5 @@ redirect_from:
 
 {% include base_path %}
 
-[My Professional Skills Course Reflective Essay](http://anant-infinity.github.io/files/Reflective_Essay_Anant.pdf)
+<embed src="/files/Reflective_Essay_Anant.pdf" width="1000px" height="1000px" />
   

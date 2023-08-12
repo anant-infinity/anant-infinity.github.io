@@ -9,5 +9,5 @@ redirect_from:
 
 {% include base_path %}
 
-[My Professional Skills Poster](http://anant-infinity.github.io/files/Anant_Professional_Skills_Poster.pdf)
+<embed src="/files/Anant_Professional_Skills_Poster.pdf" width="1000px" height="1000px" />
   
