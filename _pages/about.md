@@ -8,8 +8,9 @@ redirect_from:
   - /about.html
 ---
 
-My name is Anant, and I'm currently working as a Scientist/Engineer-C in the Assembly, Integration and Testing (AIT) division of the Human Space Flight Center of the Indian Space Research Organization. I hold a bachelor’s degree in Electronics and Communication Engineering (Avionics) from the Indian Institute of Space Science and Technology (IIST). 
+Hello! My name is Anant and I am a science-oriented Engineer and Engineering-oriented Scientist who aspires to pursue interdisciplinary research in the field of space-instrumentation to develop novel instruments leading to better understanding of space weather phenomena.
 
-I was a sponsored intern at the Laboratory for Atmospheric and Space Physics (LASP) in Boulder USA, and I did my Bachelor’s thesis at Nanyang Technological University (NTU), Singapore. At IIST, LASP, and NTU, I have worked on the design and development of multiple small satellite missions. 
+I am currently an M. Sc. student in the Dept. of Electrical & Computer Engineering and the Dept. of Physics, at the University of Alberta. I'm working on designing a High Energy Particle Telescope for the RADICALS satellite mission with a Graduate Research Assistantship Fellowship.
 
-At home, I have a penchant for developing electronics projects, using Raspberry Pi and other embedded system platforms. I am also proficient in playing guitar and keyboard, and I like exploring the relationship between mathematics and music theory. I am a vivid learner and I enjoy exploring scientific concepts by reading popular science books. I enjoy playing action-adventure games on my playstation, and am also a football fan and Real Madrid supporter. When possible, I cherish sports and outdoor activities, including swimming, tennis, football, hiking and star-gazing :).
+I have previously worked as an engineer at the Human Spaceflight Center of the Indian Space Research Organization. I have always been enthusiastic to learn beyond the curriculum, and during my undergraduate studies I contributed to multiple international small satellite missions. This led me to work as a sponsored intern at the Laboratory for Atmospheric and Space Physics, University of Colorado, as well as at the Nanyang Technological University Singapore. 
+
