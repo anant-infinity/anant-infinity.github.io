@@ -14,3 +14,16 @@ I am currently an M. Sc. student in the Dept. of Electrical & Computer Engineeri
 
 I have previously worked as an engineer at the Human Spaceflight Center of the Indian Space Research Organization. I have always been enthusiastic to learn beyond the curriculum, and during my undergraduate studies I contributed to multiple international small satellite missions. This led me to work as a sponsored intern at the Laboratory for Atmospheric and Space Physics, University of Colorado, as well as at the Nanyang Technological University Singapore. 
 
+# My Mission Statement
+
+Science-oriented Engineer and Engineering-oriented
+Scientist. I aspire to pursue interdisciplinary research in
+the field of space-instrumentation to develop novel
+instruments to improve our understanding of various
+space weather phenomena.
+
+# My MBTI Type and Clifton Strengths
+
+MBTI Type: Logistician (ISTJ)
+Clifton Strengths: Achiever, Learner, Self-Assurance, Relator and Activator
+
