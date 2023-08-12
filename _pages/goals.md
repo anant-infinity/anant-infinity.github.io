@@ -30,6 +30,12 @@ points - objectives, analysis and conclusions.
 
 > Reflection on Academic Goal-2: I am trying to achieve this by proactively thinking about this during my presentations and research group discussions. During this course, I have presented work at conferences (DASP at the Canadian Space Agency) and also attended a summer school (GRIDS at TRIUMF, UBC).
 
+### Learning Activity and Artifact for Academic Goals 1 & 2
+For working towards my Academic Goals, I took proactive steps to present my research as well as submit conference abstracts/journal articles. During the duration of this course, I have presented at two conferences, submitted 3 abstracts, and also co-authored
+a journal publication. Below are my aritfacts, a picture of me presenting at the DASP conference, as well as my abstract notification email for SPD54 and AGU23.
+
+![Learning Artifacts](/files/artifact.PNG?raw=true "Learning Artifact")
+
 ## Personal 1 (Skills Domain(s) - Intrapersonal Skills, Wellness and life balance, Intercultural competence):
 
 * **Specific:** I would like to step out of my comfort zone by trying new hobbies and meeting different people during my Master's. 
