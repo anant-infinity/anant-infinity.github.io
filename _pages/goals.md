@@ -4,7 +4,7 @@ title: "Goals"
 excerpt: "Goals"
 author_profile: true
 redirect_from: 
-  - /goals
+  - /resume
 ---
 
 I have listed down by SMART goals below. I have mentioned the Skills domain(s) that align with each goal. I have categorized them as Academic or Personal, and also divided each goal into the five SMART aspects:
