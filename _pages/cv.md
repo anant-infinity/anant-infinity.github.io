@@ -10,4 +10,6 @@ redirect_from:
 {% include base_path %}
 
 [My Latest Curriculum Vitae](http://anant-infinity.github.io/files/Curriculum_Vitae_Anant.pdf)
+
+<embed src="http://anant-infinity.github.io/files/Curriculum_Vitae_Anant.pdf" width="1000px" height="2100px" />
   
