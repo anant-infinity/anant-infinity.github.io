@@ -8,6 +8,6 @@ redirect_from:
 ---
 
 {% include base_path %}
-  
+
 [My Latest Curriculum Vitae](http://anant-infinity.github.io/files/Curriculum_Vitae_Anant.pdf)
   

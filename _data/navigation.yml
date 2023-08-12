@@ -1,19 +1,16 @@
 # main links links
 main:
-  - title: "Projects"
-    url: /portfolio/
-
   - title: "Curriculum Vitae"
     url: /cv/
 
   - title: "Learning Goals"
-    url: /year-archive/
+    url: /goals/
 
   - title: "Poster"
-    url: /publications/
+    url: /poster/
 
   - title: "Reflective Essay"
-    url: /publications/
+    url: /reflective/
     
   
     
