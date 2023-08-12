@@ -13,5 +13,5 @@ redirect_from:
 
 HI
 
-<embed src="http://anant-infinity.github.io/files/Curriculum_Vitae_Anant.pdf" width="1000px" height="2100px" />
+<embed src="/files/Curriculum_Vitae_Anant.pdf" width="1000px" height="2100px" />
   
