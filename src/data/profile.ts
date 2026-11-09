@@ -25,9 +25,9 @@ export const profile = {
     github: '',
   },
   cv: {
-    available: false,
+    available: true,
     path: '/cv/anant-telikicherla-cv.pdf',
-    lastUpdated: 'YYYY-MM-DD',
+    lastUpdated: '2026-11-09',
   },
   location: 'Boulder, Colorado, USA',
 } as const;
