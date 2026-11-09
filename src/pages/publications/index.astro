@@ -8,23 +8,37 @@ import {
   publicationYearLabel,
   uniqueTypes,
   uniqueYears,
+  publicationsByYear,
+  doiUrl,
+  arxivUrl,
 } from '../../lib/publications';
 
 const types = uniqueTypes();
 const years = uniqueYears();
+const grouped = publicationsByYear();
 ---
 
 <BaseLayout title="Publications" description="Papers, preprints, and related scholarly work.">
   <section class="mx-auto max-w-[var(--max-content)] px-5 py-12 md:px-8 md:py-16">
     <SectionHeading
       eyebrow="Publications"
-      title="Papers & preprints"
-      description="Canonical list lives in `src/content/publications/publications.json`. Matching author names are bolded automatically."
+      title="Papers & proceedings"
+      description="List curated from the CV and cross-checked with Google Scholar / Crossref for DOIs and links. Matching author names are bolded automatically."
     />
     <p class="mb-8 text-sm">
       <a class="text-accent hover:underline" href={profile.links.scholar} rel="noopener noreferrer" target="_blank">
         Google Scholar
       </a>
+      {
+        profile.links.orcid && (
+          <>
+            {' · '}
+            <a class="text-accent hover:underline" href={profile.links.orcid} rel="noopener noreferrer" target="_blank">
+              ORCID
+            </a>
+          </>
+        )
+      }
     </p>
 
     <div class="mb-8 flex flex-wrap items-end gap-3" data-pub-filters>
@@ -60,37 +74,66 @@ const years = uniqueYears();
       <p class="pb-2 text-sm text-muted"><span data-pub-count>{publications.length}</span> shown</p>
     </div>
 
-    <div class="space-y-8" data-pub-list>
-      <section>
-        <h2 class="mb-4 font-heading text-lg font-semibold text-ink">TBD</h2>
-        <ul class="space-y-5">
-          {
-            publications.map((pub) => (
-              <li
-                class="border-b border-border pb-5"
-                data-pub-item
-                data-title={pub.title}
-                data-authors={pub.authors.join(' ')}
-                data-venue={pub.venue}
-                data-type={pub.type}
-                data-year={pub.year == null ? 'tbd' : String(pub.year)}
-              >
-                <div class="flex flex-wrap items-center gap-2">
-                  <h3 class="font-heading text-base font-semibold text-ink md:text-lg">{pub.title}</h3>
-                  {pub.placeholder && (
-                    <span class="text-[10px] font-semibold tracking-wide text-solar uppercase">Placeholder</span>
-                  )}
-                </div>
-                <p class="mt-1 text-sm text-muted" set:html={boldAuthorHtml(pub.authors)} />
-                <p class="mt-1 text-sm text-muted">
-                  {publicationYearLabel(pub.year)} · {pub.venue}
-                  {pub.placeholder ? ' · placeholder' : ''}
-                </p>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
+    <div class="space-y-10" data-pub-list>
+      {
+        grouped.map(({ year, items }) => (
+          <section data-pub-year-group data-year={year == null ? 'tbd' : String(year)}>
+            <h2 class="mb-4 font-heading text-lg font-semibold text-ink">
+              {publicationYearLabel(year)}
+            </h2>
+            <ul class="space-y-5">
+              {items.map((pub) => {
+                const doiHref = doiUrl(pub.doi);
+                const arxivHref = arxivUrl(pub.arxiv);
+                return (
+                  <li
+                    class="border-b border-border pb-5"
+                    data-pub-item
+                    data-title={pub.title}
+                    data-authors={pub.authors.join(' ')}
+                    data-venue={pub.venue}
+                    data-type={pub.type}
+                    data-year={pub.year == null ? 'tbd' : String(pub.year)}
+                  >
+                    <h3 class="font-heading text-base font-semibold text-ink md:text-lg">{pub.title}</h3>
+                    <p class="mt-1 text-sm text-muted" set:html={boldAuthorHtml(pub.authors)} />
+                    <p class="mt-1 text-sm text-muted">
+                      {publicationYearLabel(pub.year)} · {pub.venue} · {pub.type}
+                    </p>
+                    <p class="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-sm">
+                      {doiHref && (
+                        <a class="text-accent hover:underline" href={doiHref} rel="noopener noreferrer" target="_blank">
+                          DOI
+                        </a>
+                      )}
+                      {pub.pdf && (
+                        <a class="text-accent hover:underline" href={pub.pdf} rel="noopener noreferrer" target="_blank">
+                          PDF
+                        </a>
+                      )}
+                      {arxivHref && (
+                        <a class="text-accent hover:underline" href={arxivHref} rel="noopener noreferrer" target="_blank">
+                          arXiv
+                        </a>
+                      )}
+                      {pub.url && !doiHref && (
+                        <a class="text-accent hover:underline" href={pub.url} rel="noopener noreferrer" target="_blank">
+                          Link
+                        </a>
+                      )}
+                      {pub.url && doiHref && pub.url !== doiHref && !pub.pdf && (
+                        <a class="text-accent hover:underline" href={pub.url} rel="noopener noreferrer" target="_blank">
+                          Publisher
+                        </a>
+                      )}
+                    </p>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        ))
+      }
     </div>
   </section>
 </BaseLayout>
@@ -101,6 +144,7 @@ const years = uniqueYears();
   const year = document.querySelector('[data-pub-year]') as HTMLSelectElement | null;
   const count = document.querySelector('[data-pub-count]');
   const items = [...document.querySelectorAll('[data-pub-item]')] as HTMLElement[];
+  const groups = [...document.querySelectorAll('[data-pub-year-group]')] as HTMLElement[];
 
   const apply = () => {
     const q = (search?.value || '').trim().toLowerCase();
@@ -115,6 +159,12 @@ const years = uniqueYears();
       const show = matchQ && matchType && matchYear;
       item.hidden = !show;
       if (show) visible += 1;
+    }
+    for (const group of groups) {
+      const visibleInGroup = [...group.querySelectorAll('[data-pub-item]')].some(
+        (el) => !(el as HTMLElement).hidden,
+      );
+      group.hidden = !visibleInGroup;
     }
     if (count) count.textContent = String(visible);
   };
