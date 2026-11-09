@@ -17,10 +17,11 @@ export const profile = {
   authorMatch: ['Anant Telikicherla', 'A. Telikicherla', 'Telikicherla, A.', 'Telikicherla, Anant'],
   links: {
     lasp: 'https://lasp.colorado.edu/people/anant-telikicherla-2/',
-    scholar: 'https://scholar.google.com/citations?user=-hmmfE8AAAAJ',
+    scholar:
+      'https://scholar.google.com/citations?hl=en&user=-hmmfE8AAAAJ&view_op=list_works&sortby=pubdate',
     linkedin: 'https://www.linkedin.com/in/anantkandala/',
-    orcid: '',
-    email: '',
+    orcid: 'https://orcid.org/0000-0001-5047-5133',
+    email: 'anant.telikicherla@lasp.colorado.edu',
     github: '',
   },
   cv: {
