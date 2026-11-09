@@ -58,16 +58,18 @@ const sections = [
     <div class="grid gap-10 md:grid-cols-[220px_minmax(0,1fr)]">
       <figure>
         <div class="aspect-[4/5] overflow-hidden rounded-sm border border-border bg-surface">
-          <img
-            src={`${base}/images/portrait-placeholder.svg`}
-            alt="Portrait placeholder for Anant Telikicherla"
-            class="h-full w-full object-cover"
-            loading="lazy"
-            width="440"
-            height="550"
-          />
+          <picture>
+            <source srcset={`${base}/images/portrait.webp`} type="image/webp" />
+            <img
+              src={`${base}/images/portrait.jpg`}
+              alt={`Portrait of ${profile.shortName}`}
+              class="h-full w-full object-cover object-center"
+              loading="lazy"
+              width="1600"
+              height="1200"
+            />
+          </picture>
         </div>
-        <figcaption class="mt-2 text-xs text-muted">Photo placeholder (SVG stub)</figcaption>
       </figure>
 
       <div class="space-y-4 text-base leading-relaxed text-muted">

@@ -6,9 +6,9 @@ export const profile = {
   division: 'Solar & Stellar Division',
   affiliation: 'Laboratory for Atmospheric and Space Physics (LASP)',
   university: 'University of Colorado Boulder',
-  eyebrow: 'Solar Physics · Space Instrumentation',
+  eyebrow: 'Heliophysics · Space Weather · Space Instrumentation',
   intro:
-    'Research scientist working on solar high-energy radiation, space-based instrumentation, and hard X-ray observations of the Sun.',
+    'Research scientist working on improving alerts for extreme solar eruptive storms.',
   bio: [
     'Anant Telikicherla is a Research Scientist (RS-I) in the Solar & Stellar Division at the Laboratory for Atmospheric and Space Physics (LASP), University of Colorado Boulder.',
     'His path spans aerospace engineering training at IIST, work connected to ISRO, graduate studies in Canada, and a Ph.D. at CU Boulder before joining LASP.',
@@ -25,9 +25,9 @@ export const profile = {
     github: '',
   },
   cv: {
-    available: false,
+    available: true,
     path: '/cv/anant-telikicherla-cv.pdf',
-    lastUpdated: 'YYYY-MM-DD',
+    lastUpdated: '2026-11-09',
   },
   location: 'Boulder, Colorado, USA',
 } as const;
