@@ -1,0 +1,52 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+
+export async function getStaticPaths() {
+  const research = await getCollection('research');
+  return research.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout title={project.data.title} description={project.data.summary}>
+  <article class="mx-auto max-w-[var(--max-content)] px-5 py-12 md:px-8 md:py-16">
+    <p class="mb-6">
+      <a href={`${base}/research`} class="text-sm text-accent hover:underline">← All research</a>
+    </p>
+    <SectionHeading
+      eyebrow="Research project"
+      title={project.data.title}
+      description={project.data.summary}
+    />
+    {
+      project.data.placeholder && (
+        <p class="mb-8 inline-flex rounded-sm border border-solar/30 bg-solar/10 px-3 py-1 text-[10px] font-semibold tracking-wide text-solar uppercase">
+          Editable placeholder — replace before public launch
+        </p>
+      )
+    }
+    <div class="prose-academic max-w-3xl space-y-4 text-base leading-relaxed text-muted [&_h2]:mt-10 [&_h2]:font-heading [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-ink [&_h2]:first:mt-0 [&_p]:text-muted [&_ul]:list-disc [&_ul]:pl-5">
+      <Content />
+    </div>
+    {
+      project.data.collaborators.length > 0 && (
+        <section class="mt-10 max-w-3xl">
+          <h2 class="font-heading text-xl font-semibold text-ink">Collaborators</h2>
+          <ul class="mt-3 list-disc space-y-1 pl-5 text-muted">
+            {project.data.collaborators.map((name) => (
+              <li>{name}</li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+  </article>
+</BaseLayout>

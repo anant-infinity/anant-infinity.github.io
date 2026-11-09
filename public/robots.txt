@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anant-infinity.github.io/sitemap-index.xml

@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { profile } from '../../data/profile';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const sections = [
+  {
+    title: 'Interests',
+    placeholder: true,
+    items: [
+      'Solar high-energy radiation and hard X-ray observations',
+      'Space-based instrumentation and detectors',
+      'Add or replace interests with verified topics',
+    ],
+  },
+  {
+    title: 'Education',
+    placeholder: true,
+    items: [
+      'Ph.D., University of Colorado Boulder — dates/title placeholder',
+      'Graduate studies in Canada — details placeholder',
+      'IIST (aerospace engineering training) — details placeholder',
+    ],
+  },
+  {
+    title: 'Experience',
+    placeholder: true,
+    items: [
+      `${profile.title}, ${profile.affiliation} — dates placeholder`,
+      'ISRO-connected work — role/dates placeholder',
+      'Add verified appointments only',
+    ],
+  },
+  {
+    title: 'Awards',
+    placeholder: true,
+    items: ['No awards listed yet — do not invent entries'],
+  },
+  {
+    title: 'Presentations',
+    placeholder: true,
+    items: ['Add talks and conference presentations when verified'],
+  },
+  {
+    title: 'Activities',
+    placeholder: true,
+    items: ['Service, mentoring, and outreach placeholders'],
+  },
+];
+---
+
+<BaseLayout title="About" description={`About ${profile.shortName}.`}>
+  <section class="mx-auto max-w-[var(--max-content)] px-5 py-12 md:px-8 md:py-16">
+    <SectionHeading eyebrow="About" title={profile.shortName} description={`${profile.title} · ${profile.affiliation}`} />
+
+    <div class="grid gap-10 md:grid-cols-[220px_minmax(0,1fr)]">
+      <figure>
+        <div class="aspect-[4/5] overflow-hidden rounded-sm border border-border bg-surface">
+          <img
+            src={`${base}/images/portrait-placeholder.svg`}
+            alt="Portrait placeholder for Anant Telikicherla"
+            class="h-full w-full object-cover"
+            loading="lazy"
+            width="440"
+            height="550"
+          />
+        </div>
+        <figcaption class="mt-2 text-xs text-muted">Photo placeholder (SVG stub)</figcaption>
+      </figure>
+
+      <div class="space-y-4 text-base leading-relaxed text-muted">
+        {profile.bio.map((paragraph) => <p>{paragraph}</p>)}
+        <p class="text-sm">
+          LASP people page:
+          <a class="text-accent hover:underline" href={profile.links.lasp} rel="noopener noreferrer" target="_blank">
+            lasp.colorado.edu
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-14 grid gap-8 md:grid-cols-2">
+      {
+        sections.map((section) => (
+          <section class="rounded-sm border border-border bg-surface/80 p-5">
+            <div class="mb-3 flex items-center gap-2">
+              <h2 class="font-heading text-lg font-semibold text-ink">{section.title}</h2>
+              {section.placeholder && (
+                <span class="text-[10px] font-semibold tracking-wide text-solar uppercase">Placeholder</span>
+              )}
+            </div>
+            <ul class="space-y-2 text-sm text-muted">
+              {section.items.map((item) => (
+                <li class="border-b border-border/70 pb-2 last:border-0 last:pb-0">{item}</li>
+              ))}
+            </ul>
+          </section>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { profile } from '../../data/profile';
+import {
+  publications,
+  boldAuthorHtml,
+  publicationYearLabel,
+  uniqueTypes,
+  uniqueYears,
+} from '../../lib/publications';
+
+const types = uniqueTypes();
+const years = uniqueYears();
+---
+
+<BaseLayout title="Publications" description="Papers, preprints, and related scholarly work.">
+  <section class="mx-auto max-w-[var(--max-content)] px-5 py-12 md:px-8 md:py-16">
+    <SectionHeading
+      eyebrow="Publications"
+      title="Papers & preprints"
+      description="Canonical list lives in `src/content/publications/publications.json`. Matching author names are bolded automatically."
+    />
+    <p class="mb-8 text-sm">
+      <a class="text-accent hover:underline" href={profile.links.scholar} rel="noopener noreferrer" target="_blank">
+        Google Scholar
+      </a>
+    </p>
+
+    <div class="mb-8 flex flex-wrap items-end gap-3" data-pub-filters>
+      <label class="flex min-w-[14rem] flex-1 flex-col gap-1 text-xs font-medium text-muted">
+        Search
+        <input
+          type="search"
+          placeholder="Title, author, venue..."
+          data-pub-search
+          class="rounded-md border border-border bg-surface px-3 py-2 text-sm text-ink outline-none focus:border-accent"
+        />
+      </label>
+      <label class="flex flex-col gap-1 text-xs font-medium text-muted">
+        Type
+        <select data-pub-type class="rounded-md border border-border bg-surface px-3 py-2 text-sm text-ink">
+          <option value="all">All types</option>
+          {types.map((type) => <option value={type}>{type}</option>)}
+        </select>
+      </label>
+      <label class="flex flex-col gap-1 text-xs font-medium text-muted">
+        Year
+        <select data-pub-year class="rounded-md border border-border bg-surface px-3 py-2 text-sm text-ink">
+          <option value="all">All years</option>
+          {
+            years.map((year) => (
+              <option value={year == null ? 'tbd' : String(year)}>
+                {year == null ? 'TBD' : year}
+              </option>
+            ))
+          }
+        </select>
+      </label>
+      <p class="pb-2 text-sm text-muted"><span data-pub-count>{publications.length}</span> shown</p>
+    </div>
+
+    <div class="space-y-8" data-pub-list>
+      <section>
+        <h2 class="mb-4 font-heading text-lg font-semibold text-ink">TBD</h2>
+        <ul class="space-y-5">
+          {
+            publications.map((pub) => (
+              <li
+                class="border-b border-border pb-5"
+                data-pub-item
+                data-title={pub.title}
+                data-authors={pub.authors.join(' ')}
+                data-venue={pub.venue}
+                data-type={pub.type}
+                data-year={pub.year == null ? 'tbd' : String(pub.year)}
+              >
+                <div class="flex flex-wrap items-center gap-2">
+                  <h3 class="font-heading text-base font-semibold text-ink md:text-lg">{pub.title}</h3>
+                  {pub.placeholder && (
+                    <span class="text-[10px] font-semibold tracking-wide text-solar uppercase">Placeholder</span>
+                  )}
+                </div>
+                <p class="mt-1 text-sm text-muted" set:html={boldAuthorHtml(pub.authors)} />
+                <p class="mt-1 text-sm text-muted">
+                  {publicationYearLabel(pub.year)} · {pub.venue}
+                  {pub.placeholder ? ' · placeholder' : ''}
+                </p>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const search = document.querySelector('[data-pub-search]') as HTMLInputElement | null;
+  const type = document.querySelector('[data-pub-type]') as HTMLSelectElement | null;
+  const year = document.querySelector('[data-pub-year]') as HTMLSelectElement | null;
+  const count = document.querySelector('[data-pub-count]');
+  const items = [...document.querySelectorAll('[data-pub-item]')] as HTMLElement[];
+
+  const apply = () => {
+    const q = (search?.value || '').trim().toLowerCase();
+    const typeValue = type?.value || 'all';
+    const yearValue = year?.value || 'all';
+    let visible = 0;
+    for (const item of items) {
+      const hay = `${item.dataset.title} ${item.dataset.authors} ${item.dataset.venue}`.toLowerCase();
+      const matchQ = !q || hay.includes(q);
+      const matchType = typeValue === 'all' || item.dataset.type === typeValue;
+      const matchYear = yearValue === 'all' || item.dataset.year === yearValue;
+      const show = matchQ && matchType && matchYear;
+      item.hidden = !show;
+      if (show) visible += 1;
+    }
+    if (count) count.textContent = String(visible);
+  };
+
+  search?.addEventListener('input', apply);
+  type?.addEventListener('change', apply);
+  year?.addEventListener('change', apply);
+</script>

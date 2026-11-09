@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F8FAFC"/>
+  <circle cx="900" cy="315" r="70" fill="#D88952"/>
+  <circle cx="900" cy="315" r="140" stroke="#426B8C" stroke-width="3" fill="none"/>
+  <ellipse cx="900" cy="315" rx="220" ry="90" stroke="#E2E8F0" stroke-width="2" fill="none" transform="rotate(-18 900 315)"/>
+  <text x="80" y="260" fill="#10243A" font-family="system-ui,sans-serif" font-size="54" font-weight="700">Anant Telikicherla</text>
+  <text x="80" y="330" fill="#426B8C" font-family="system-ui,sans-serif" font-size="28">Research Scientist · LASP · CU Boulder</text>
+  <text x="80" y="390" fill="#566879" font-family="system-ui,sans-serif" font-size="24">Solar physics · Space instrumentation</text>
+</svg>

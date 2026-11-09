@@ -1,0 +1,19 @@
+---
+import { profile } from '../data/profile';
+const year = new Date().getFullYear();
+const base = import.meta.env.BASE_URL;
+---
+
+<footer class="mt-16 border-t border-border bg-surface/80">
+  <div class="mx-auto flex max-w-[var(--max-content)] flex-col gap-3 px-5 py-8 text-sm text-muted md:flex-row md:items-center md:justify-between md:px-8">
+    <p>
+      © {year} {profile.shortName}. {profile.affiliation}.
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a class="hover:text-ink" href={profile.links.lasp} rel="noopener noreferrer" target="_blank">LASP</a>
+      <a class="hover:text-ink" href={profile.links.scholar} rel="noopener noreferrer" target="_blank">Google Scholar</a>
+      <a class="hover:text-ink" href={profile.links.linkedin} rel="noopener noreferrer" target="_blank">LinkedIn</a>
+      <a class="hover:text-ink" href={`${base.replace(/\/$/, '')}/contact`}>Contact</a>
+    </div>
+  </div>
+</footer>
