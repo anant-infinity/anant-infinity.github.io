@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="SLIP n SLIDE project visual placeholder">
+  <rect width="960" height="540" fill="#0A1424"/>
+  <g fill="none" stroke="#243449" stroke-width="1.2">
+    <rect x="300" y="190" width="360" height="160" rx="80"/>
+    <circle cx="380" cy="270" r="36"/>
+    <circle cx="580" cy="270" r="36"/>
+    <ellipse cx="480" cy="270" rx="220" ry="70" transform="rotate(-8 480 270)"/>
+  </g>
+  <g stroke="#D88952" stroke-opacity="0.45" stroke-width="1.4" fill="none">
+    <ellipse cx="480" cy="270" rx="160" ry="48"/>
+  </g>
+  <circle cx="480" cy="270" r="6" fill="#E09A5F"/>
+  <text x="360" y="410" fill="#93A4B8" font-family="Manrope, sans-serif" font-size="16" letter-spacing="0.14em">SLIP 'n SLIDE</text>
+</svg>

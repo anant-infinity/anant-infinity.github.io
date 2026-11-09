@@ -2,125 +2,196 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
+import ResearchCard from '../../components/ResearchCard.astro';
+import OrbitalBackdrop from '../../components/OrbitalBackdrop.astro';
+import { researchThemes } from '../../content.config';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const research = await getCollection('research');
-const byId = Object.fromEntries(research.map((project) => [project.id, project]));
 
-const instrumentation = [byId['seushi']].filter(Boolean);
-const dataAnalysis = [byId['hope']].filter(Boolean);
-const other = research
-  .filter((project) => project.id !== 'seushi' && project.id !== 'hope')
+const flagships = research
+  .filter((project) => project.data.featured)
   .sort((a, b) => a.data.order - b.data.order);
 
-function projectCard(project: (typeof research)[number]) {
-  return {
-    href: `${base}/research/${project.id}`,
-    title: project.data.title,
-    summary: project.data.summary,
-    placeholder: project.data.placeholder,
-  };
-}
+const other = research
+  .filter((project) => !project.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const summary =
+  'Soft X-ray flare physics and nowcasting, compact solar X-ray instrumentation, space-weather mission concepts, and small-satellite systems — from HOPE and SEUSHI to active instrument development.';
 ---
 
-<BaseLayout title="Research" description="Current space instrumentation and data analysis projects.">
-  <section class="mx-auto max-w-[var(--max-content)] px-5 py-12 md:px-8 md:py-16">
-    <SectionHeading
-      eyebrow="Research"
-      title="Current projects"
-      description="Overview of active space instrumentation and solar flare data-analysis work. Project pages follow a shared template with content in Markdown under `src/content/research/`."
-    />
+<BaseLayout
+  title="Research"
+  description="Space instrumentation, solar flare physics, and space-weather research projects."
+  variant="space"
+>
+  <section class="relative overflow-hidden">
+    <OrbitalBackdrop />
+    <div class="relative mx-auto max-w-[var(--max-content)] px-5 py-12 md:px-8 md:py-16">
+      <SectionHeading eyebrow="Research" title="Themes & projects" description={summary} />
 
-    <div class="mt-10 grid gap-10 md:grid-cols-2 md:gap-12">
-      <div>
-        <h2 class="font-heading text-xl font-semibold text-ink md:text-2xl">
-          Current Space Instrumentation projects
-        </h2>
-        <div class="mt-5 divide-y divide-border border-y border-border">
+      <div class="mt-8 flex flex-wrap gap-2" role="group" aria-label="Filter by research theme">
+        <button
+          type="button"
+          class="theme-filter rounded-md border border-border bg-surface px-3 py-1.5 text-sm text-ink transition hover:border-solar/50 data-[active=true]:border-solar data-[active=true]:text-solar"
+          data-filter="all"
+          data-active="true"
+        >
+          All themes
+        </button>
+        {
+          researchThemes.map((theme) => (
+            <button
+              type="button"
+              class="theme-filter rounded-md border border-border bg-surface/40 px-3 py-1.5 text-sm text-muted transition hover:border-solar/50 hover:text-ink data-[active=true]:border-solar data-[active=true]:bg-surface data-[active=true]:text-solar"
+              data-filter={theme}
+              data-active="false"
+            >
+              {theme}
+            </button>
+          ))
+        }
+      </div>
+
+      <div class="mt-12">
+        <div class="mb-6 flex items-end justify-between gap-4">
+          <div>
+            <p class="text-xs font-semibold tracking-[0.18em] text-solar uppercase">Flagship</p>
+            <h2 class="mt-1 font-heading text-xl font-semibold text-ink md:text-2xl">
+              Featured projects
+            </h2>
+          </div>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2" data-flagship-grid>
           {
-            instrumentation.map((project) => {
-              const card = projectCard(project);
+            flagships.map((project) => (
+              <ResearchCard
+                href={`${base}/research/${project.id}`}
+                title={project.data.title}
+                subtitle={project.data.subtitle}
+                summary={project.data.summary}
+                status={project.data.status}
+                theme={project.data.theme}
+                image={project.data.image}
+                placeholder={project.data.placeholder}
+              />
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="mt-16" data-themes-section>
+        <p class="text-xs font-semibold tracking-[0.18em] text-solar uppercase">Themes</p>
+        <h2 class="mt-1 font-heading text-xl font-semibold text-ink md:text-2xl">Research themes</h2>
+        <div class="mt-8 grid gap-8 md:grid-cols-2">
+          {
+            researchThemes.map((theme) => {
+              const themeProjects = research
+                .filter((project) => project.data.theme === theme)
+                .sort((a, b) => a.data.order - b.data.order);
               return (
-                <a href={card.href} class="group block py-5 transition hover:bg-surface/80">
-                  <div class="flex items-start justify-between gap-4">
-                    <div>
-                      <h3 class="font-heading text-lg font-semibold text-ink group-hover:text-accent">
-                        {card.title}
-                      </h3>
-                      <p class="mt-2 text-muted">{card.summary}</p>
-                    </div>
-                    <span class="mt-1 text-accent" aria-hidden="true">
-                      →
-                    </span>
-                  </div>
-                </a>
+                <div class="theme-block border-t border-border pt-5" data-theme-block={theme}>
+                  <h3 class="font-heading text-lg font-semibold text-ink">{theme}</h3>
+                  <ul class="mt-4 space-y-3">
+                    {themeProjects.map((project) => (
+                      <li>
+                        <a
+                          href={`${base}/research/${project.id}`}
+                          class="group flex items-start justify-between gap-3 text-sm"
+                        >
+                          <span>
+                            <span class="font-medium text-ink group-hover:text-solar">
+                              {project.data.title}
+                            </span>
+                            <span class="mt-0.5 block text-muted">
+                              {project.data.subtitle || project.data.status}
+                            </span>
+                          </span>
+                          <span class="text-solar" aria-hidden="true">
+                            →
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               );
             })
           }
         </div>
       </div>
 
-      <div>
-        <h2 class="font-heading text-xl font-semibold text-ink md:text-2xl">
-          Current Data Analysis Projects
-        </h2>
-        <div class="mt-5 divide-y divide-border border-y border-border">
-          {
-            dataAnalysis.map((project) => {
-              const card = projectCard(project);
-              return (
-                <a href={card.href} class="group block py-5 transition hover:bg-surface/80">
-                  <div class="flex items-start justify-between gap-4">
-                    <div>
-                      <h3 class="font-heading text-lg font-semibold text-ink group-hover:text-accent">
-                        {card.title}
-                      </h3>
-                      <p class="mt-2 text-muted">{card.summary}</p>
-                    </div>
-                    <span class="mt-1 text-accent" aria-hidden="true">
-                      →
-                    </span>
-                  </div>
-                </a>
-              );
-            })
-          }
-        </div>
-      </div>
-    </div>
-
-    {
-      other.length > 0 && (
-        <div class="mt-14">
-          <h2 class="font-heading text-xl font-semibold text-ink">Related themes</h2>
-          <div class="mt-5 divide-y divide-border border-y border-border">
-            {other.map((project) => {
-              const card = projectCard(project);
-              return (
+      {
+        other.length > 0 && (
+          <div class="mt-16" data-other-section>
+            <p class="text-xs font-semibold tracking-[0.18em] text-solar uppercase">Also</p>
+            <h2 class="mt-1 font-heading text-xl font-semibold text-ink md:text-2xl">
+              Other projects
+            </h2>
+            <div class="mt-6 divide-y divide-border border-y border-border">
+              {other.map((project) => (
                 <a
-                  href={card.href}
-                  class="group flex items-start justify-between gap-4 py-5 transition hover:bg-surface/80"
+                  href={`${base}/research/${project.id}`}
+                  class="research-other group flex items-start justify-between gap-4 py-5 transition hover:bg-surface/40"
+                  data-theme={project.data.theme}
                 >
                   <div class="max-w-3xl">
-                    <h3 class="font-heading text-lg font-semibold text-ink group-hover:text-accent">
-                      {card.title}
-                    </h3>
-                    <p class="mt-2 text-muted">{card.summary}</p>
-                    {card.placeholder && (
-                      <p class="mt-3 text-[10px] font-semibold tracking-wide text-solar uppercase">
-                        Editable placeholder
-                      </p>
-                    )}
+                    <div class="flex flex-wrap items-center gap-2">
+                      <h3 class="font-heading text-lg font-semibold text-ink group-hover:text-solar">
+                        {project.data.title}
+                      </h3>
+                      <span class="text-[10px] font-semibold tracking-wide text-solar uppercase">
+                        {project.data.status}
+                      </span>
+                    </div>
+                    <p class="mt-1 text-sm text-muted">{project.data.theme}</p>
+                    <p class="mt-2 text-muted">{project.data.summary}</p>
                   </div>
-                  <span class="mt-1 text-accent" aria-hidden="true">
+                  <span class="mt-1 text-solar" aria-hidden="true">
                     →
                   </span>
                 </a>
-              );
-            })}
+              ))}
+            </div>
           </div>
-        </div>
-      )
-    }
+        )
+      }
+    </div>
   </section>
+
+  <script>
+    const filters = document.querySelectorAll<HTMLButtonElement>('.theme-filter');
+    const cards = document.querySelectorAll<HTMLElement>('.research-card');
+    const others = document.querySelectorAll<HTMLElement>('.research-other');
+    const themeBlocks = document.querySelectorAll<HTMLElement>('[data-theme-block]');
+
+    function applyFilter(value: string) {
+      filters.forEach((btn) => {
+        btn.dataset.active = String(btn.dataset.filter === value);
+      });
+
+      cards.forEach((card) => {
+        const match = value === 'all' || card.dataset.theme === value;
+        card.classList.toggle('hidden', !match);
+      });
+
+      others.forEach((row) => {
+        const match = value === 'all' || row.dataset.theme === value;
+        row.classList.toggle('hidden', !match);
+      });
+
+      themeBlocks.forEach((block) => {
+        const match = value === 'all' || block.dataset.themeBlock === value;
+        block.classList.toggle('hidden', !match);
+      });
+    }
+
+    filters.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        applyFilter(btn.dataset.filter || 'all');
+      });
+    });
+  </script>
 </BaseLayout>

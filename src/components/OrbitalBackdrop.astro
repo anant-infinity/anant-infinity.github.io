@@ -1,0 +1,57 @@
+---
+/**
+ * Subtle orbital arcs for Research pages.
+ * Decorative only — no animation when prefers-reduced-motion is set (global CSS).
+ */
+---
+
+<div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+  <svg
+    class="absolute -top-24 right-[-10%] h-[28rem] w-[28rem] opacity-[0.18] md:h-[36rem] md:w-[36rem]"
+    viewBox="0 0 480 480"
+    fill="none"
+  >
+    <circle cx="240" cy="240" r="70" stroke="currentColor" class="text-border" stroke-width="1" />
+    <circle cx="240" cy="240" r="120" stroke="currentColor" class="text-border" stroke-width="1" />
+    <circle cx="240" cy="240" r="170" stroke="currentColor" class="text-border" stroke-width="1" />
+    <ellipse
+      cx="240"
+      cy="240"
+      rx="200"
+      ry="92"
+      transform="rotate(-18 240 240)"
+      stroke="currentColor"
+      class="text-solar/40"
+      stroke-width="1"
+    />
+    <ellipse
+      cx="240"
+      cy="240"
+      rx="210"
+      ry="78"
+      transform="rotate(32 240 240)"
+      stroke="currentColor"
+      class="text-accent/30"
+      stroke-width="1"
+    />
+    <circle cx="240" cy="240" r="6" fill="currentColor" class="text-solar/70" />
+  </svg>
+  <svg
+    class="absolute bottom-[-8%] left-[-8%] h-[22rem] w-[22rem] opacity-[0.12] md:h-[28rem] md:w-[28rem]"
+    viewBox="0 0 480 480"
+    fill="none"
+  >
+    <circle cx="240" cy="240" r="90" stroke="currentColor" class="text-border" stroke-width="1" />
+    <circle cx="240" cy="240" r="140" stroke="currentColor" class="text-border" stroke-width="1" />
+    <ellipse
+      cx="240"
+      cy="240"
+      rx="180"
+      ry="70"
+      transform="rotate(24 240 240)"
+      stroke="currentColor"
+      class="text-solar/35"
+      stroke-width="1"
+    />
+  </svg>
+</div>

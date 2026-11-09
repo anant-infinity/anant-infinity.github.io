@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="HOPE project visual placeholder">
+  <rect width="960" height="540" fill="#0A1424"/>
+  <defs>
+    <radialGradient id="sun" cx="32%" cy="50%" r="38%">
+      <stop offset="0%" stop-color="#F0B27A"/>
+      <stop offset="45%" stop-color="#D88952" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#0A1424" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#sun)"/>
+  <g fill="none" stroke="#243449" stroke-width="1.2">
+    <path d="M220 270 C360 140, 520 140, 680 270 C520 400, 360 400, 220 270 Z"/>
+    <circle cx="300" cy="270" r="56"/>
+    <circle cx="300" cy="270" r="96"/>
+  </g>
+  <circle cx="300" cy="270" r="24" fill="#E09A5F"/>
+  <g stroke="#D88952" stroke-opacity="0.45" stroke-width="1.5" fill="none">
+    <path d="M380 250 H780"/>
+    <path d="M380 270 H720"/>
+    <path d="M380 290 H760"/>
+  </g>
+  <text x="640" y="430" fill="#93A4B8" font-family="Manrope, sans-serif" font-size="18" letter-spacing="0.2em">HOPE</text>
+</svg>

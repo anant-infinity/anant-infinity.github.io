@@ -1,9 +1,13 @@
 ---
 title: SEUSHI
-summary: Solar Extreme Ultraviolet Spectrograph and High-energy Imager — a compact multipinhole soft X-ray imager and grazing-incidence EUV spectrograph on a shared camera, aimed at flare/CME early alerts and coronal diagnostics. A technology-demonstration version is in development for the SDO-EVE calibration sounding rocket.
-order: 1
+subtitle: Solar Extreme Ultraviolet Spectrograph and High-energy Imager
+summary: A compact multipinhole soft X-ray imager and grazing-incidence EUV spectrograph on a shared camera, aimed at flare/CME early alerts and coronal diagnostics. A technology-demonstration version is in development for the SDO-EVE calibration sounding rocket.
+order: 2
 featured: true
 placeholder: false
+theme: Space Weather Missions & Concepts
+status: In development
+image: /images/research/seushi.svg
 collaborators:
   - Thomas N. Woods
   - Dave Crotser
@@ -14,6 +18,7 @@ collaborators:
   - Andrew R. Jones
   - James P. Mason
   - Philip Chamberlin
+funding: []
 ---
 
 ## Overview
@@ -26,7 +31,7 @@ Source paper: Telikicherla et al., *The Astrophysical Journal*, 1005, 18 (2026);
 
 Soft X-ray and extreme-ultraviolet observations provide critical diagnostics of the dynamic solar corona, yet significant measurement gaps remain for flare and CME initiation studies. SEUSHI targets spatially resolved hot-onset precursor diagnostics for earlier flare alerts, photon-counting SXR spectroscopy for elemental-abundance evolution in active regions, and high-resolution EUV spectra for coronal-dimming studies and early CME alerts.
 
-## Methods
+## Approach
 
 Per the published instrument paper, SEUSHI’s design includes:
 
@@ -37,11 +42,11 @@ Per the published instrument paper, SEUSHI’s design includes:
 
 Design, development, and preflight calibration results are documented in the ApJ paper; performance claims beyond that publication are not restated here.
 
-## Results / Objectives
+## Results / Impact
 
 Current objectives focus on completing technology demonstration on the SDO-EVE calibration rocket and validating the combined SXR imaging / EUV spectroscopy approach described in the instrument paper. Successful rocket demonstration is framed in the paper as a step toward future satellite opportunities and improved space-weather operations.
 
-## Publications
+## Selected publications & links
 
 - Telikicherla et al., “SEUSHI: Solar Extreme Ultraviolet Spectrograph and High-energy Imager: Design, Development, and Preflight Calibration,” *ApJ* 1005, 18 (2026). [DOI](https://doi.org/10.3847/1538-4357/ae74ce) · [PDF](https://iopscience.iop.org/article/10.3847/1538-4357/ae74ce/pdf) · [arXiv](https://arxiv.org/abs/2604.07537)
 

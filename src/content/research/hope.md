@@ -1,12 +1,17 @@
 ---
 title: HOPE
-summary: Hot Onset Precursor Event (HOPE) research — statistical soft X-ray studies of flare onsets and nowcasting methods that use HOPE signatures for earlier flare alerts, including machine-learning extensions for high-impact flares.
-order: 2
+subtitle: Hot Onset Precursor Event nowcasting
+summary: Statistical soft X-ray studies of flare onsets and nowcasting methods that use HOPE signatures for earlier flare alerts, including machine-learning extensions for high-impact flares.
+order: 1
 featured: true
 placeholder: false
+theme: Solar Flare Physics & Nowcasting
+status: Active
+image: /images/research/hope.svg
 collaborators:
   - Thomas N. Woods
   - Bennet D. Schwab
+funding: []
 ---
 
 ## Overview
@@ -23,7 +28,7 @@ Primary papers:
 
 Operational flare alerts based on GOES-XRS flux thresholds are typically issued only once a flare is already in its impulsive phase. HOPE research aims to characterize pre-impulsive plasma evolution and to evaluate whether HOPE signatures can provide earlier warnings useful for high-frequency communications operators and targeted flare observing campaigns.
 
-## Methods
+## Approach
 
 As reported in the peer-reviewed papers:
 
@@ -32,11 +37,11 @@ As reported in the peer-reviewed papers:
 - Statistical analysis of HOPE phases across DAXSS and GOES flare samples, including AIA 193 Å context for onset loop morphology (“one-loop” and “two-loop” onsets in the 2024 ApJ study).
 - A HOPE-based nowcasting algorithm on GOES-XRS (2025 ApJ), later extended with a multilayer perceptron model trained to estimate flare peak magnitude and peak time for high-impact (>M5.0) flares (2026 *Solar Physics*).
 
-## Results / Objectives
+## Results / Impact
 
 Published findings include elevated temperatures (about 10–15 MK) and order-of-magnitude EM increases during HOPE before the impulsive phase; elemental abundance factors that evolve from coronal toward photospheric values as flares progress; and HOPE-based nowcasting that, in the reported GOES tests, produced flare alerts minutes ahead of peak (and, in the ML study’s one-week proof-of-concept, detected all four >M5.0 flares with an average lead time of 17.9 minutes relative to the NOAA R3 radio-blackout alert). Ongoing work continues to refine HOPE detection and nowcasting for space-weather applications.
 
-## Publications
+## Selected publications & links
 
 - Telikicherla et al., “Advancing Solar Flare Nowcasting with Machine Learning Based Detection of Hot Onset Precursor Events,” *Solar Physics* 301, 110 (2026). [DOI](https://doi.org/10.1007/s11207-026-02705-2)
 - Telikicherla, Woods & Schwab, “Improving Solar Flare Nowcasting with the Hot Onset Precursor Event Technique,” *ApJ* 993, 95 (2025). [DOI](https://doi.org/10.3847/1538-4357/ae0705) · [arXiv](https://arxiv.org/abs/2509.05234)

@@ -1,0 +1,56 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  subtitle?: string;
+  summary: string;
+  status: string;
+  theme: string;
+  image?: string;
+  placeholder?: boolean;
+}
+
+const { href, title, subtitle, summary, status, theme, image, placeholder } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const imageSrc = image
+  ? image.startsWith('http') || image.startsWith('/')
+    ? image.startsWith('/')
+      ? `${base}${image}`
+      : image
+    : `${base}/${image}`
+  : `${base}/images/research/placeholder-orbital.svg`;
+---
+
+<a
+  href={href}
+  class="group research-card flex flex-col overflow-hidden rounded-sm border border-border bg-surface/60 transition hover:border-solar/50 hover:bg-surface"
+  data-theme={theme}
+>
+  <div class="relative aspect-video overflow-hidden border-b border-border bg-bg">
+    <img
+      src={imageSrc}
+      alt=""
+      class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+      width="960"
+      height="540"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+  <div class="flex flex-1 flex-col gap-2 p-5">
+    <div class="flex flex-wrap items-center gap-2">
+      <span class="text-[10px] font-semibold tracking-[0.14em] text-solar uppercase">{status}</span>
+      {
+        placeholder && (
+          <span class="rounded-sm border border-solar/30 bg-solar/10 px-2 py-0.5 text-[10px] font-semibold tracking-wide text-solar uppercase">
+            Placeholder
+          </span>
+        )
+      }
+    </div>
+    <h3 class="font-heading text-lg font-semibold text-ink group-hover:text-solar md:text-xl">{title}</h3>
+    {subtitle && <p class="text-sm font-medium text-muted">{subtitle}</p>}
+    <p class="mt-1 line-clamp-3 text-sm leading-relaxed text-muted">{summary}</p>
+    <span class="mt-auto pt-3 text-sm text-solar">View project →</span>
+  </div>
+</a>
