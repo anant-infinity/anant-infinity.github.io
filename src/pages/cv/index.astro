@@ -7,7 +7,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const cvHref = `${base}${profile.cv.path}`;
 ---
 
-<BaseLayout title="CV" description={`Curriculum vitae for ${profile.shortName}.`}>
+<BaseLayout title="CV" description={`Curriculum vitae for ${profile.shortName}.`} variant="space">
   <section class="mx-auto max-w-[var(--max-content)] px-5 py-12 md:px-8 md:py-16">
     <SectionHeading
       eyebrow="Curriculum vitae"
@@ -20,7 +20,7 @@ const cvHref = `${base}${profile.cv.path}`;
         <div class="space-y-6">
           <a
             href={cvHref}
-            class="inline-flex rounded-md bg-accent px-4 py-2.5 text-sm font-medium text-white hover:brightness-95"
+            class="inline-flex rounded-md bg-solar px-4 py-2.5 text-sm font-medium text-bg hover:brightness-105"
             download
           >
             Download CV (PDF)

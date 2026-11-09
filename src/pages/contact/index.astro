@@ -4,7 +4,7 @@ import SectionHeading from '../../components/SectionHeading.astro';
 import { profile } from '../../data/profile';
 ---
 
-<BaseLayout title="Contact" description={`Contact ${profile.shortName}.`}>
+<BaseLayout title="Contact" description={`Contact ${profile.shortName}.`} variant="space">
   <section class="mx-auto max-w-[var(--max-content)] px-5 py-12 md:px-8 md:py-16">
     <SectionHeading
       eyebrow="Contact"
@@ -13,7 +13,7 @@ import { profile } from '../../data/profile';
     />
 
     <div class="grid max-w-3xl gap-6">
-      <div class="rounded-sm border border-border bg-surface/90 p-5">
+      <div class="rounded-sm border border-border bg-surface/60 p-5">
         <h2 class="font-heading text-lg font-semibold text-ink">Affiliation</h2>
         <p class="mt-2 text-muted">{profile.title}</p>
         <p class="text-muted">{profile.division}</p>
@@ -27,7 +27,7 @@ import { profile } from '../../data/profile';
           <span class="font-medium text-ink">Email:</span>
           {
             profile.links.email ? (
-              <a class="text-accent hover:underline" href={`mailto:${profile.links.email}`}>
+              <a class="text-solar hover:underline" href={`mailto:${profile.links.email}`}>
                 {profile.links.email}
               </a>
             ) : (
@@ -37,19 +37,19 @@ import { profile } from '../../data/profile';
         </li>
         <li>
           <span class="font-medium text-ink">LASP:</span>
-          <a class="text-accent hover:underline" href={profile.links.lasp} rel="noopener noreferrer" target="_blank">
+          <a class="text-solar hover:underline" href={profile.links.lasp} rel="noopener noreferrer" target="_blank">
             People page
           </a>
         </li>
         <li>
           <span class="font-medium text-ink">Google Scholar:</span>
-          <a class="text-accent hover:underline" href={profile.links.scholar} rel="noopener noreferrer" target="_blank">
+          <a class="text-solar hover:underline" href={profile.links.scholar} rel="noopener noreferrer" target="_blank">
             Citations profile
           </a>
         </li>
         <li>
           <span class="font-medium text-ink">LinkedIn:</span>
-          <a class="text-accent hover:underline" href={profile.links.linkedin} rel="noopener noreferrer" target="_blank">
+          <a class="text-solar hover:underline" href={profile.links.linkedin} rel="noopener noreferrer" target="_blank">
             Profile
           </a>
         </li>
@@ -57,7 +57,7 @@ import { profile } from '../../data/profile';
           <span class="font-medium text-ink">ORCID:</span>
           {
             profile.links.orcid ? (
-              <a class="text-accent hover:underline" href={profile.links.orcid} rel="noopener noreferrer" target="_blank">
+              <a class="text-solar hover:underline" href={profile.links.orcid} rel="noopener noreferrer" target="_blank">
                 {profile.links.orcid}
               </a>
             ) : (
@@ -69,7 +69,7 @@ import { profile } from '../../data/profile';
           <span class="font-medium text-ink">GitHub:</span>
           {
             profile.links.github ? (
-              <a class="text-accent hover:underline" href={profile.links.github} rel="noopener noreferrer" target="_blank">
+              <a class="text-solar hover:underline" href={profile.links.github} rel="noopener noreferrer" target="_blank">
                 {profile.links.github}
               </a>
             ) : (
