@@ -8,12 +8,15 @@ interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  /** Soft deep-space surface for Research / project pages */
+  variant?: 'default' | 'space';
 }
 
 const {
   title,
   description = profile.intro,
   ogImage = '/images/og-default.svg',
+  variant = 'default',
 } = Astro.props;
 
 const pageTitle = title ? `${title} · ${profile.shortName}` : `${profile.nameWithDegree} · ${profile.title}`;
@@ -41,7 +44,7 @@ const ogAbs = new URL(ogImage, Astro.site).href;
     <meta name="twitter:image" content={ogAbs} />
     <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class:list={['min-h-screen flex flex-col', variant === 'space' && 'theme-space']}>
     <a
       href="#main"
       class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-surface focus:px-3 focus:py-2 focus:shadow"

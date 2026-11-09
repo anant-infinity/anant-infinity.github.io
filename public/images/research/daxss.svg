@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="DAXSS project visual placeholder">
+  <rect width="960" height="540" fill="#0A1424"/>
+  <g fill="none" stroke="#243449" stroke-width="1.2">
+    <rect x="220" y="180" width="520" height="180" rx="4"/>
+    <circle cx="340" cy="270" r="48"/>
+    <path d="M420 230 H680 V310 H420 Z"/>
+  </g>
+  <g stroke="#D88952" stroke-opacity="0.5" stroke-width="1.4" fill="none">
+    <path d="M160 270 H292"/>
+    <circle cx="340" cy="270" r="22"/>
+  </g>
+  <circle cx="340" cy="270" r="6" fill="#E09A5F"/>
+  <text x="470" y="400" fill="#93A4B8" font-family="Manrope, sans-serif" font-size="18" letter-spacing="0.2em">DAXSS</text>
+</svg>

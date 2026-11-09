@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="SEUSHI project visual placeholder">
+  <rect width="960" height="540" fill="#0A1424"/>
+  <g fill="none" stroke="#243449" stroke-width="1.2">
+    <rect x="180" y="150" width="600" height="240" rx="4"/>
+    <circle cx="360" cy="270" r="70"/>
+    <circle cx="360" cy="270" r="18"/>
+    <path d="M460 210 H700 V330 H460"/>
+    <path d="M500 240 H660 M500 270 H640 M500 300 H620"/>
+  </g>
+  <g fill="none" stroke="#D88952" stroke-opacity="0.5" stroke-width="1.4">
+    <circle cx="360" cy="270" r="46"/>
+    <path d="M430 270 H760"/>
+  </g>
+  <circle cx="360" cy="270" r="8" fill="#E09A5F"/>
+  <text x="500" y="400" fill="#93A4B8" font-family="Manrope, sans-serif" font-size="18" letter-spacing="0.2em">SEUSHI</text>
+</svg>

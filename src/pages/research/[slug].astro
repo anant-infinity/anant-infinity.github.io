@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import SectionHeading from '../../components/SectionHeading.astro';
+import OrbitalBackdrop from '../../components/OrbitalBackdrop.astro';
 
 export async function getStaticPaths() {
   const research = await getCollection('research');
@@ -14,39 +14,99 @@ export async function getStaticPaths() {
 const { project } = Astro.props;
 const { Content } = await render(project);
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const imageSrc = project.data.image
+  ? project.data.image.startsWith('/')
+    ? `${base}${project.data.image}`
+    : project.data.image
+  : `${base}/images/research/placeholder-orbital.svg`;
 ---
 
-<BaseLayout title={project.data.title} description={project.data.summary}>
-  <article class="mx-auto max-w-[var(--max-content)] px-5 py-12 md:px-8 md:py-16">
-    <p class="mb-6">
-      <a href={`${base}/research`} class="text-sm text-accent hover:underline">← All research</a>
-    </p>
-    <SectionHeading
-      eyebrow="Research project"
-      title={project.data.title}
-      description={project.data.summary}
-    />
-    {
-      project.data.placeholder && (
-        <p class="mb-8 inline-flex rounded-sm border border-solar/30 bg-solar/10 px-3 py-1 text-[10px] font-semibold tracking-wide text-solar uppercase">
-          Editable placeholder — replace before public launch
-        </p>
-      )
-    }
-    <div class="prose-academic max-w-3xl space-y-4 text-base leading-relaxed text-muted [&_h2]:mt-10 [&_h2]:font-heading [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-ink [&_h2]:first:mt-0 [&_p]:text-muted [&_ul]:list-disc [&_ul]:pl-5">
-      <Content />
+<BaseLayout title={project.data.title} description={project.data.summary} variant="space">
+  <article class="relative overflow-hidden">
+    <OrbitalBackdrop />
+    <div class="relative mx-auto max-w-[var(--max-content)] px-5 py-12 md:px-8 md:py-16">
+      <p class="mb-6">
+        <a href={`${base}/research`} class="text-sm text-solar hover:underline">← All research</a>
+      </p>
+
+      <header class="grid items-start gap-8 md:grid-cols-2 md:gap-12">
+        <div>
+          <p class="mb-2 text-xs font-semibold tracking-[0.18em] text-solar uppercase">
+            {project.data.theme}
+          </p>
+          <h1 class="font-heading text-3xl font-semibold tracking-tight text-ink md:text-4xl">
+            {project.data.title}
+          </h1>
+          {
+            project.data.subtitle && (
+              <p class="mt-2 text-lg font-medium text-muted">{project.data.subtitle}</p>
+            )
+          }
+          <p class="mt-4 max-w-xl text-base leading-relaxed text-muted md:text-lg">
+            {project.data.summary}
+          </p>
+          <div class="mt-5 flex flex-wrap items-center gap-2">
+            <span class="rounded-sm border border-border bg-surface px-2.5 py-1 text-[10px] font-semibold tracking-wide text-solar uppercase">
+              {project.data.status}
+            </span>
+            {
+              project.data.placeholder && (
+                <span class="rounded-sm border border-solar/30 bg-solar/10 px-2.5 py-1 text-[10px] font-semibold tracking-wide text-solar uppercase">
+                  Editable placeholder — replace before public launch
+                </span>
+              )
+            }
+          </div>
+        </div>
+        <figure>
+          <div class="aspect-video overflow-hidden rounded-sm border border-border bg-surface">
+            <img
+              src={imageSrc}
+              alt={`${project.data.title} visual`}
+              class="h-full w-full object-cover"
+              width="960"
+              height="540"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </div>
+          <figcaption class="mt-2 text-sm text-muted">
+            Scientific imagery placeholder — replace with instrument or observation figures when ready.
+          </figcaption>
+        </figure>
+      </header>
+
+      <div
+        class="prose-academic mt-12 max-w-3xl space-y-4 text-base leading-relaxed text-muted [&_a]:text-solar [&_a]:underline-offset-2 hover:[&_a]:underline [&_h2]:mt-10 [&_h2]:font-heading [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-ink [&_h2]:first:mt-0 [&_li]:marker:text-solar [&_p]:text-muted [&_ul]:list-disc [&_ul]:pl-5"
+      >
+        <Content />
+      </div>
+
+      {
+        project.data.funding.length > 0 && (
+          <section class="mt-10 max-w-3xl">
+            <h2 class="font-heading text-xl font-semibold text-ink">Funding</h2>
+            <ul class="mt-3 list-disc space-y-1 pl-5 text-muted">
+              {project.data.funding.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      {
+        project.data.collaborators.length > 0 && (
+          <section class="mt-10 max-w-3xl">
+            <h2 class="font-heading text-xl font-semibold text-ink">Collaborators</h2>
+            <ul class="mt-3 list-disc space-y-1 pl-5 text-muted">
+              {project.data.collaborators.map((name) => (
+                <li>{name}</li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
     </div>
-    {
-      project.data.collaborators.length > 0 && (
-        <section class="mt-10 max-w-3xl">
-          <h2 class="font-heading text-xl font-semibold text-ink">Collaborators</h2>
-          <ul class="mt-3 list-disc space-y-1 pl-5 text-muted">
-            {project.data.collaborators.map((name) => (
-              <li>{name}</li>
-            ))}
-          </ul>
-        </section>
-      )
-    }
   </article>
 </BaseLayout>

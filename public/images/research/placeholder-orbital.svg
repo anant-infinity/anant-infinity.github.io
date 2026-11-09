@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Abstract orbital placeholder">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="48%" r="42%">
+      <stop offset="0%" stop-color="#D88952" stop-opacity="0.55"/>
+      <stop offset="55%" stop-color="#426B8C" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#0A1424" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="960" height="540" fill="#0A1424"/>
+  <rect width="960" height="540" fill="url(#glow)"/>
+  <g fill="none" stroke="#243449" stroke-width="1.25">
+    <circle cx="480" cy="270" r="72"/>
+    <circle cx="480" cy="270" r="128"/>
+    <circle cx="480" cy="270" r="184"/>
+    <ellipse cx="480" cy="270" rx="240" ry="96" transform="rotate(-16 480 270)"/>
+    <ellipse cx="480" cy="270" rx="250" ry="84" transform="rotate(28 480 270)"/>
+  </g>
+  <circle cx="480" cy="270" r="28" fill="#D88952" fill-opacity="0.85"/>
+  <circle cx="640" cy="214" r="5" fill="#93A4B8"/>
+  <circle cx="332" cy="338" r="4" fill="#E8EEF6" fill-opacity="0.7"/>
+</svg>

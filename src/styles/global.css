@@ -50,8 +50,25 @@
     background-position: center top;
   }
 
+  /* Soft deep-space surface for Research + project pages */
+  body.theme-space {
+    --color-bg: #0a1424;
+    --color-surface: #111c30;
+    --color-ink: #e8eef6;
+    --color-muted: #93a4b8;
+    --color-accent: #d88952;
+    --color-border: #243449;
+    --color-solar: #e09a5f;
+    background-image: none;
+    background-color: var(--color-bg);
+  }
+
   ::selection {
     background: color-mix(in oklab, var(--color-accent) 25%, white);
+  }
+
+  body.theme-space ::selection {
+    background: color-mix(in oklab, var(--color-solar) 35%, transparent);
   }
 }
 

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Compact hard X-ray instrument visual placeholder">
+  <rect width="960" height="540" fill="#0A1424"/>
+  <g fill="none" stroke="#243449" stroke-width="1.2">
+    <rect x="260" y="170" width="440" height="200" rx="3"/>
+    <circle cx="380" cy="270" r="54"/>
+    <rect x="460" y="220" width="180" height="100" rx="2"/>
+  </g>
+  <g stroke="#D88952" stroke-opacity="0.55" stroke-width="1.5" fill="none">
+    <path d="M200 270 H326"/>
+    <path d="M434 270 H760"/>
+    <circle cx="380" cy="270" r="28"/>
+  </g>
+  <circle cx="380" cy="270" r="7" fill="#E09A5F"/>
+  <text x="470" y="400" fill="#93A4B8" font-family="Manrope, sans-serif" font-size="16" letter-spacing="0.12em">HARD X-RAY</text>
+</svg>
