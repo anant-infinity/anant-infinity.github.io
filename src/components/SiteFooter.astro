@@ -13,6 +13,13 @@ const base = import.meta.env.BASE_URL;
       <a class="hover:text-ink" href={profile.links.lasp} rel="noopener noreferrer" target="_blank">LASP</a>
       <a class="hover:text-ink" href={profile.links.scholar} rel="noopener noreferrer" target="_blank">Google Scholar</a>
       <a class="hover:text-ink" href={profile.links.linkedin} rel="noopener noreferrer" target="_blank">LinkedIn</a>
+      {
+        profile.links.github && (
+          <a class="hover:text-ink" href={profile.links.github} rel="noopener noreferrer" target="_blank">
+            GitHub
+          </a>
+        )
+      }
       <a class="hover:text-ink" href={`${base.replace(/\/$/, '')}/contact`}>Contact</a>
     </div>
   </div>

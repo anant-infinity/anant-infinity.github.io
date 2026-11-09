@@ -10,6 +10,8 @@ export type Publication = {
   type: string;
   doi?: string;
   url?: string;
+  pdf?: string;
+  arxiv?: string;
   featured?: boolean;
   placeholder?: boolean;
 };
@@ -17,14 +19,15 @@ export type Publication = {
 export const publications = raw as Publication[];
 
 export function getFeaturedPublications(limit = 3): Publication[] {
-  return publications.filter((p) => p.featured).slice(0, limit);
+  return publications.filter((p) => p.featured && !p.placeholder).slice(0, limit);
 }
 
 export function boldAuthorHtml(authors: string[]): string {
   return authors
     .map((author) => {
+      const lower = author.toLowerCase();
       const match = profile.authorMatch.some(
-        (token) => author.toLowerCase() === token.toLowerCase() || author.toLowerCase().includes('telikicherla'),
+        (token) => lower === token.toLowerCase() || lower.includes('telikicherla'),
       );
       return match ? `<strong>${author}</strong>` : author;
     })
@@ -46,4 +49,25 @@ export function uniqueYears(items: Publication[] = publications): Array<number |
     if (b == null) return -1;
     return b - a;
   });
+}
+
+export function publicationsByYear(items: Publication[] = publications): Array<{
+  year: number | null;
+  items: Publication[];
+}> {
+  const years = uniqueYears(items);
+  return years.map((year) => ({
+    year,
+    items: items.filter((p) => p.year === year),
+  }));
+}
+
+export function doiUrl(doi?: string): string | undefined {
+  if (!doi) return undefined;
+  return doi.startsWith('http') ? doi : `https://doi.org/${doi}`;
+}
+
+export function arxivUrl(arxiv?: string): string | undefined {
+  if (!arxiv) return undefined;
+  return arxiv.startsWith('http') ? arxiv : `https://arxiv.org/abs/${arxiv}`;
 }
