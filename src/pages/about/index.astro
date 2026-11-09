@@ -51,7 +51,7 @@ const sections = [
 ];
 ---
 
-<BaseLayout title="About" description={`About ${profile.shortName}.`}>
+<BaseLayout title="About" description={`About ${profile.shortName}.`} variant="space">
   <section class="mx-auto max-w-[var(--max-content)] px-5 py-12 md:px-8 md:py-16">
     <SectionHeading eyebrow="About" title={profile.shortName} description={`${profile.title} · ${profile.affiliation}`} />
 
@@ -76,7 +76,7 @@ const sections = [
         {profile.bio.map((paragraph) => <p>{paragraph}</p>)}
         <p class="text-sm">
           LASP people page:
-          <a class="text-accent hover:underline" href={profile.links.lasp} rel="noopener noreferrer" target="_blank">
+          <a class="text-solar hover:underline" href={profile.links.lasp} rel="noopener noreferrer" target="_blank">
             lasp.colorado.edu
           </a>
         </p>
@@ -86,7 +86,7 @@ const sections = [
     <div class="mt-14 grid gap-8 md:grid-cols-2">
       {
         sections.map((section) => (
-          <section class="rounded-sm border border-border bg-surface/80 p-5">
+          <section class="rounded-sm border border-border bg-surface/60 p-5">
             <div class="mb-3 flex items-center gap-2">
               <h2 class="font-heading text-lg font-semibold text-ink">{section.title}</h2>
               {section.placeholder && (

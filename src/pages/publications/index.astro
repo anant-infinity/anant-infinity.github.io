@@ -18,7 +18,7 @@ const years = uniqueYears();
 const grouped = publicationsByYear();
 ---
 
-<BaseLayout title="Publications" description="Papers, preprints, and related scholarly work.">
+<BaseLayout title="Publications" description="Papers, preprints, and related scholarly work." variant="space">
   <section class="mx-auto max-w-[var(--max-content)] px-5 py-12 md:px-8 md:py-16">
     <SectionHeading
       eyebrow="Publications"
@@ -26,14 +26,14 @@ const grouped = publicationsByYear();
       description="List curated from the CV and cross-checked with Google Scholar / Crossref for DOIs and links. Matching author names are bolded automatically."
     />
     <p class="mb-8 text-sm">
-      <a class="text-accent hover:underline" href={profile.links.scholar} rel="noopener noreferrer" target="_blank">
+      <a class="text-solar hover:underline" href={profile.links.scholar} rel="noopener noreferrer" target="_blank">
         Google Scholar
       </a>
       {
         profile.links.orcid && (
           <>
             {' · '}
-            <a class="text-accent hover:underline" href={profile.links.orcid} rel="noopener noreferrer" target="_blank">
+            <a class="text-solar hover:underline" href={profile.links.orcid} rel="noopener noreferrer" target="_blank">
               ORCID
             </a>
           </>
@@ -48,7 +48,7 @@ const grouped = publicationsByYear();
           type="search"
           placeholder="Title, author, venue..."
           data-pub-search
-          class="rounded-md border border-border bg-surface px-3 py-2 text-sm text-ink outline-none focus:border-accent"
+          class="rounded-md border border-border bg-surface px-3 py-2 text-sm text-ink outline-none focus:border-solar"
         />
       </label>
       <label class="flex flex-col gap-1 text-xs font-medium text-muted">
@@ -102,27 +102,27 @@ const grouped = publicationsByYear();
                     </p>
                     <p class="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-sm">
                       {doiHref && (
-                        <a class="text-accent hover:underline" href={doiHref} rel="noopener noreferrer" target="_blank">
+                        <a class="text-solar hover:underline" href={doiHref} rel="noopener noreferrer" target="_blank">
                           DOI
                         </a>
                       )}
                       {pub.pdf && (
-                        <a class="text-accent hover:underline" href={pub.pdf} rel="noopener noreferrer" target="_blank">
+                        <a class="text-solar hover:underline" href={pub.pdf} rel="noopener noreferrer" target="_blank">
                           PDF
                         </a>
                       )}
                       {arxivHref && (
-                        <a class="text-accent hover:underline" href={arxivHref} rel="noopener noreferrer" target="_blank">
+                        <a class="text-solar hover:underline" href={arxivHref} rel="noopener noreferrer" target="_blank">
                           arXiv
                         </a>
                       )}
                       {pub.url && !doiHref && (
-                        <a class="text-accent hover:underline" href={pub.url} rel="noopener noreferrer" target="_blank">
+                        <a class="text-solar hover:underline" href={pub.url} rel="noopener noreferrer" target="_blank">
                           Link
                         </a>
                       )}
                       {pub.url && doiHref && pub.url !== doiHref && !pub.pdf && (
-                        <a class="text-accent hover:underline" href={pub.url} rel="noopener noreferrer" target="_blank">
+                        <a class="text-solar hover:underline" href={pub.url} rel="noopener noreferrer" target="_blank">
                           Publisher
                         </a>
                       )}
