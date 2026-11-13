@@ -2,6 +2,9 @@
  * Public research portfolio listings for Home + Research pages.
  * Sourced from CV (public/cv/anant-telikicherla-cv.pdf, last updated 2026-11-09)
  * and existing research detail pages. Do not invent roles, grants, or amounts.
+ *
+ * `href` is an external Learn More target only (DOI, mission, lab page).
+ * Omit when no verified paper/site exists — do not link internal /research/[slug] pages.
  */
 
 export type PortfolioEntry = {
@@ -11,7 +14,7 @@ export type PortfolioEntry = {
   program: string;
   years: string;
   summary: string;
-  /** Relative path under site base, e.g. /research/hope — only when a detail page exists */
+  /** External Learn More URL (DOI, mission, or official lab page) */
   href?: string;
   /** Awarded amounts only when listed on the public CV */
   amount?: string;
@@ -38,7 +41,7 @@ export const currentResearch: PortfolioEntry[] = [
     amount: '$100,000',
     summary:
       'First PI-led effort developing a compact hard X-ray photometer for space-weather applications under the LASP IRD 2026–27 program, building on soft X-ray photon-counting experience from SEUSHI and related solar instrumentation.',
-    href: '/research/hard-xray',
+    href: 'https://doi.org/10.3847/1538-4357/ae74ce',
     homeFeatured: true,
     homeFeaturedOrder: 1,
     homeTitle: 'Compact Hard X-ray Instrument',
@@ -52,7 +55,7 @@ export const currentResearch: PortfolioEntry[] = [
     program: 'NASA H-TIDeS',
     years: 'Submitted/Pending',
     summary:
-      'Compact next-generation solar X-ray imaging spectrometer concept for near-real-time space-weather alerts (PI: Andrew Jones; NASA Heliophysics Technology and Instrument Development for Science), listed on the CV as submitted/pending.',
+      'Compact next-generation solar X-ray imaging spectrometer concept for near-real-time space-weather alerts (PI: Andrew Jones; NASA Heliophysics Technology and Instrument Development for Science).',
     homeFeatured: true,
     homeFeaturedOrder: 2,
     homeTitle: 'Next-Gen Solar X-ray Spectrometer',
@@ -67,7 +70,7 @@ export const currentResearch: PortfolioEntry[] = [
     years: 'Submitted/Pending',
     summary:
       'Hot Onset Precursor Event (HOPE) flare-onset physics and nowcasting methods, including a submitted/pending NASA LWS Science proposal on flare precursors as predictors of extreme solar events (PI: Bennet Schwab).',
-    href: '/research/hope',
+    href: 'https://doi.org/10.3847/1538-4357/ae0705',
     homeFeatured: true,
     homeFeaturedOrder: 3,
     homeTitle: 'Solar Flare Nowcasting',
@@ -82,7 +85,7 @@ export const currentResearch: PortfolioEntry[] = [
     years: '2024–Present',
     summary:
       'Solar Extreme Ultraviolet Spectrograph and High-energy Imager: multipinhole soft X-ray imaging and grazing-incidence EUV spectroscopy for flare/CME diagnostics, with a technology demonstration in development for the SDO-EVE calibration rocket.',
-    href: '/research/seushi',
+    href: 'https://doi.org/10.3847/1538-4357/ae74ce',
   },
   {
     id: 'daxss-extended',
@@ -93,7 +96,7 @@ export const currentResearch: PortfolioEntry[] = [
     amount: '$49,000',
     summary:
       'Awarded DAXSS extended mission for new studies of solar active-region abundance and thermosphere density variations (PI: Thomas N. Woods), continuing soft X-ray spectral analysis from the flown MinXSS / DAXSS instrument.',
-    href: '/research/daxss',
+    href: 'https://doi.org/10.3847/1538-4357/acef13',
   },
 ];
 
@@ -112,6 +115,7 @@ export const pastResearch: PortfolioEntry[] = [
     amount: '$150,000 CAD',
     summary:
       'Payload for Energetic Particle Precipitation Education and Research eXperiment: particle-detector instrument development, integration, and testing; flown 13 August 2024 (PI: David Milling).',
+    href: 'https://www.nasa.gov/centers-and-facilities/wallops/this-rocks-nasa-is-sending-student-science-to-space/',
   },
   {
     id: 'radicals',
@@ -121,6 +125,7 @@ export const pastResearch: PortfolioEntry[] = [
     years: '2022–2024',
     summary:
       'High-energy particle telescope instrument electronics design and microburst detector development for the RADICALS microsatellite mission (CV: in development during 2022–2024).',
+    href: 'https://www.asc-csa.gc.ca/eng/satellites/radicals.asp',
   },
   {
     id: 'scoob-ii',
@@ -130,6 +135,7 @@ export const pastResearch: PortfolioEntry[] = [
     years: '2022–2023',
     summary:
       'Flight software development and spacecraft integration and testing for the SCOOB-II CubeSat mission (flown).',
+    href: 'https://www.ntu.edu.sg/sarc/research-capabilities/satellites/scoob-ii',
   },
   {
     id: 'gaganyaan-tvd1',
@@ -139,6 +145,7 @@ export const pastResearch: PortfolioEntry[] = [
     years: '2021–2022',
     summary:
       'Crew module electrical integration and testing for Gaganyaan TV-D1 while serving as Scientist/Engineer-SC at HSFC/ISRO; vehicle flown 21 October 2023.',
+    href: 'https://www.isro.gov.in/Gaganyaan.html',
   },
   {
     id: 'inspiresat-1',
@@ -148,6 +155,7 @@ export const pastResearch: PortfolioEntry[] = [
     years: '2018–2022',
     summary:
       'On-board computer design, integration, and testing for the INSPIRESat-1 ionosphere and solar X-ray observing microsatellite (flown).',
+    href: 'https://lasp.colorado.edu/inspire/satellites/inspiresat-1/',
   },
   {
     id: 'arcade',
@@ -157,6 +165,7 @@ export const pastResearch: PortfolioEntry[] = [
     years: '2020–2021',
     summary:
       'Spacecraft interface board development and spacecraft integration for ARCADE (flown), a very-low-Earth-orbit mission for atmospheric and ionospheric measurements.',
+    href: 'https://www.ntu.edu.sg/sarc/research-capabilities/satellites/arcade',
   },
   {
     id: 'alberta-hept',
@@ -175,6 +184,7 @@ export const pastResearch: PortfolioEntry[] = [
     years: '2020',
     summary:
       'Visiting scholar at the Satellite Research Center, Nanyang Technological University, Singapore (NTU-India Connect Program).',
+    href: 'https://www.ntu.edu.sg/sarc',
   },
   {
     id: 'lasp-intern-2019',
