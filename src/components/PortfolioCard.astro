@@ -14,6 +14,7 @@ const { id, title, role, program, years, summary, href, amount } = Astro.props;
 
 const metaParts = [role, program, years].filter(Boolean);
 const meta = metaParts.join(' · ');
+const isExternal = Boolean(href?.startsWith('http'));
 ---
 
 <article
@@ -27,7 +28,11 @@ const meta = metaParts.join(' · ');
     {
       href ? (
         <h3 class="font-heading text-lg font-semibold text-ink transition group-hover:text-solar md:text-xl">
-          <a href={href} class="outline-none focus-visible:text-solar">
+          <a
+            href={href}
+            class="outline-none focus-visible:text-solar"
+            {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+          >
             {title}
           </a>
         </h3>
@@ -44,6 +49,7 @@ const meta = metaParts.join(' · ');
           <a
             href={href}
             class="text-sm text-muted transition hover:text-solar"
+            {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
           >
             Learn more →
           </a>

@@ -5,13 +5,6 @@ import PortfolioCard from '../../components/PortfolioCard.astro';
 import OrbitalBackdrop from '../../components/OrbitalBackdrop.astro';
 import { currentResearch, pastResearch } from '../../data/research-portfolio';
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-
-const withBase = (href?: string) => {
-  if (!href) return undefined;
-  return href.startsWith('http') ? href : `${base}${href}`;
-};
-
 const intro =
   'My research focuses on solar eruptive events, space-based X-ray instrumentation, and the development of techniques for improving space-weather forecasting and early warning. I contribute to NASA-funded research programs and space missions, with a particular emphasis on developing scientific instruments and translating solar observations into actionable space-weather information.';
 ---
@@ -41,7 +34,7 @@ const intro =
                 program={entry.program}
                 years={entry.years}
                 summary={entry.summary}
-                href={withBase(entry.href)}
+                href={entry.href}
                 amount={entry.amount}
               />
             ))
@@ -64,7 +57,7 @@ const intro =
                 program={entry.program}
                 years={entry.years}
                 summary={entry.summary}
-                href={withBase(entry.href)}
+                href={entry.href}
                 amount={entry.amount}
               />
             ))

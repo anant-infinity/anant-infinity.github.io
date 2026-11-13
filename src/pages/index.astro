@@ -6,7 +6,6 @@ import { profile } from '../data/profile';
 import { homeFeaturedResearch } from '../data/research-portfolio';
 
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
-const baseTrim = base.replace(/\/$/, '');
 
 const coverLinks = [
   { href: `${base}research/`, label: 'Explore Research', primary: true },
@@ -16,8 +15,8 @@ const coverLinks = [
 ];
 
 const featuredHref = (entry: (typeof homeFeaturedResearch)[number]) => {
-  if (entry.href) return `${baseTrim}${entry.href}`;
-  return `${base}research/#${entry.id}`;
+  if (!entry.href) return undefined;
+  return entry.href;
 };
 ---
 
@@ -27,14 +26,33 @@ const featuredHref = (entry: (typeof homeFeaturedResearch)[number]) => {
     <div
       class="relative mx-auto flex min-h-[calc(100svh-4.25rem)] max-w-[var(--max-content)] flex-col justify-center px-5 py-12 md:px-8 md:py-16"
     >
-      <div class="grid items-center gap-10 md:grid-cols-2 md:gap-14">
-        <div class="fade-in">
+      <div class="grid items-center gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.2fr)_minmax(0,0.9fr)] lg:gap-10">
+        <figure class="fade-in order-1 mx-auto w-full max-w-xs sm:max-w-sm lg:mx-0 lg:max-w-none">
+          <div class="relative aspect-[3/4] overflow-hidden rounded-sm border border-border bg-surface">
+            <picture>
+              <source srcset={`${base}images/portrait.webp`} type="image/webp" />
+              <img
+                src={`${base}images/portrait.jpg`}
+                alt={`Portrait of ${profile.name}`}
+                class="absolute inset-0 h-full w-[200%] max-w-none -translate-x-1/2 object-cover object-right"
+                width="800"
+                height="1200"
+                decoding="async"
+                fetchpriority="high"
+              />
+            </picture>
+          </div>
+        </figure>
+
+        <div class="fade-in order-2 text-center lg:text-left">
           <p class="mb-3 text-xs font-semibold tracking-[0.18em] text-solar uppercase">{profile.eyebrow}</p>
           <h1 class="font-heading text-4xl font-semibold tracking-tight text-ink md:text-5xl">{profile.name}</h1>
           <p class="mt-3 text-lg font-medium text-ink">{profile.title}</p>
           <p class="mt-1 text-muted">{profile.division} · {profile.affiliation}</p>
-          <p class="mt-5 max-w-xl text-base leading-relaxed text-muted md:text-lg">{profile.intro}</p>
-          <nav class="mt-8 flex flex-wrap gap-3" aria-label="Cover">
+          <p class="mt-5 max-w-xl text-base leading-relaxed text-muted md:mx-0 md:text-lg mx-auto">
+            {profile.intro}
+          </p>
+          <nav class="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start" aria-label="Cover">
             {
               coverLinks.map((link, index) => (
                 <a
@@ -53,21 +71,22 @@ const featuredHref = (entry: (typeof homeFeaturedResearch)[number]) => {
             }
           </nav>
         </div>
-        <figure class="fade-in fade-in-delay-2">
-          <div class="relative aspect-[4/3] overflow-hidden rounded-sm border border-border bg-surface">
-            <picture>
-              <source srcset={`${base}images/portrait.webp`} type="image/webp" />
-              <img
-                src={`${base}images/portrait.jpg`}
-                alt={`Portrait of ${profile.name}`}
-                class="h-full w-full object-cover object-center"
-                width="1600"
-                height="1200"
-                decoding="async"
-                fetchpriority="high"
-              />
-            </picture>
+
+        <figure class="fade-in fade-in-delay-2 order-3 mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none">
+          <div class="relative aspect-square overflow-hidden rounded-sm border border-border bg-surface">
+            <img
+              src={`${base}images/NASA-SDO-Solar-Flare-March-2022.gif`}
+              alt="NASA Solar Dynamics Observatory AIA animation of an X1.3-class solar flare on March 30, 2022, blending 171 and 131 angstrom extreme ultraviolet light"
+              class="h-full w-full object-cover object-center"
+              width="718"
+              height="685"
+              decoding="async"
+              loading="lazy"
+            />
           </div>
+          <figcaption class="mt-2 text-center text-xs tracking-wide text-muted lg:text-left">
+            Credit: NASA SDO / AIA
+          </figcaption>
         </figure>
       </div>
     </div>
