@@ -91,15 +91,16 @@ const mapPhoto = {
 
   @media (min-width: 900px) {
     .about-layout {
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 1.75rem 1.5rem;
+      /* Narrow photos · bio · prominent map */
+      grid-template-columns: minmax(0, 11.5rem) minmax(0, 1fr) minmax(0, 1.55fr);
+      gap: 1.5rem 1.35rem;
       align-items: start;
     }
   }
 
   .about-layout__photos {
     display: grid;
-    gap: 1.25rem;
+    gap: 0.85rem;
   }
 
   .about-figure {
@@ -121,7 +122,8 @@ const mapPhoto = {
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 4 / 5;
+    /* Landscape-leaning crop so stacked photos stay short */
+    aspect-ratio: 5 / 4;
     object-fit: cover;
     object-position: center;
   }
@@ -130,20 +132,42 @@ const mapPhoto = {
     aspect-ratio: auto;
     object-fit: contain;
     object-position: center;
-    padding: 0.5rem;
+    padding: 0.65rem;
     background: color-mix(in oklab, var(--color-surface) 70%, #0a1424);
   }
 
   .about-figure__caption {
-    margin-top: 0.55rem;
+    margin-top: 0.45rem;
     font-size: 0.8125rem;
-    line-height: 1.4;
+    line-height: 1.35;
     color: var(--color-muted);
+  }
+
+  /* Mobile: keep photos readable but not oversized */
+  @media (max-width: 899px) {
+    .about-layout__photos {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+
+    .about-figure__img {
+      aspect-ratio: 4 / 3;
+    }
+
+    .about-layout__map .about-figure__img--map {
+      width: 100%;
+      min-height: 14rem;
+    }
   }
 
   @media (min-width: 900px) {
     .about-layout__map .about-figure__img--map {
-      min-height: 16rem;
+      min-height: 22rem;
+      padding: 0.85rem;
+    }
+
+    .about-figure--map .about-figure__caption {
+      font-size: 0.875rem;
     }
   }
 </style>
