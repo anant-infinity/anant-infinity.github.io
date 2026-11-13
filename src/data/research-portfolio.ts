@@ -40,8 +40,7 @@ export const currentResearch: PortfolioEntry[] = [
     years: '2026–2027',
     amount: '$100,000',
     summary:
-      'First PI-led effort developing a compact hard X-ray photometer for space-weather applications under the LASP IRD 2026–27 program, building on soft X-ray photon-counting experience from SEUSHI and related solar instrumentation.',
-    href: 'https://doi.org/10.3847/1538-4357/ae74ce',
+      'First PI-led effort developing a compact hard X-ray photometer for space-weather applications under the LASP IRD 2026–27 program.',
     homeFeatured: true,
     homeFeaturedOrder: 1,
     homeTitle: 'Compact Hard X-ray Instrument',
@@ -118,13 +117,13 @@ export const pastResearch: PortfolioEntry[] = [
     href: 'https://www.nasa.gov/centers-and-facilities/wallops/this-rocks-nasa-is-sending-student-science-to-space/',
   },
   {
-    id: 'radicals',
-    title: 'RADICALS',
-    role: 'Instrument electronics / microburst detector development',
-    program: 'Microsatellite — high-energy particle telescope',
+    id: 'radicals-hept',
+    title: 'RADICALS / High Energy Particle Telescope',
+    role: 'Graduate Research Assistant · instrument electronics / microburst detector',
+    program: 'RADICALS microsatellite · Laser-Plasma Laboratory, University of Alberta',
     years: '2022–2024',
     summary:
-      'High-energy particle telescope instrument electronics design and microburst detector development for the RADICALS microsatellite mission (CV: in development during 2022–2024).',
+      'M.S. high-energy particle telescope suite design (electron microburst detector and read-out electronics; Fedosejevs & Mann) applied to RADICALS microsatellite instrument electronics and microburst detector development.',
     href: 'https://www.asc-csa.gc.ca/eng/satellites/radicals.asp',
   },
   {
@@ -166,34 +165,6 @@ export const pastResearch: PortfolioEntry[] = [
     summary:
       'Spacecraft interface board development and spacecraft integration for ARCADE (flown), a very-low-Earth-orbit mission for atmospheric and ionospheric measurements.',
     href: 'https://www.ntu.edu.sg/sarc/research-capabilities/satellites/arcade',
-  },
-  {
-    id: 'alberta-hept',
-    title: 'High Energy Particle Telescope Suite',
-    role: 'Graduate Research Assistant',
-    program: 'Laser-Plasma Laboratory, University of Alberta',
-    years: '2022–2024',
-    summary:
-      'M.S. research on high-energy particle telescope suite design, including an electron microburst detector and read-out electronics (thesis work under Fedosejevs & Mann).',
-  },
-  {
-    id: 'ntu-sarc',
-    title: 'Satellite Research Center visiting scholarship',
-    role: 'Visiting Scholar',
-    program: 'Nanyang Technological University (NTU-India Connect)',
-    years: '2020',
-    summary:
-      'Visiting scholar at the Satellite Research Center, Nanyang Technological University, Singapore (NTU-India Connect Program).',
-    href: 'https://www.ntu.edu.sg/sarc',
-  },
-  {
-    id: 'lasp-intern-2019',
-    title: 'LASP summer research internship',
-    role: 'Summer Research Intern',
-    program: 'Laboratory for Atmospheric and Space Physics',
-    years: '2019',
-    summary:
-      'Summer research internship at LASP, University of Colorado Boulder, prior to graduate studies in heliophysics and space instrumentation.',
   },
 ];
 
