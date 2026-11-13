@@ -1,32 +1,13 @@
-# About photo gallery
+# About gallery assets
 
-Drop personal photos here. They appear automatically in a horizontal strip at the bottom of the About page.
+Images used by the About page three-column layout:
 
-## How to add photos
+| File | Placement | Caption |
+|------|-----------|---------|
+| `anant_img2.png` | Left column, top | Anant inside the lab |
+| `anant_img1.png` | Left column, bottom | Anant outside the lab |
+| `Anant_Map.png` | Right column | Places I've lived, studied, and researched |
 
-1. Add image files to this folder (`public/images/about-gallery/`).
-2. Supported formats: **JPG / JPEG / PNG / WebP** (also GIF).
-3. Name files clearly, for example:
-   - `delhi-family.jpg`
-   - `boulder-hike.webp`
-   - `tennis-2024.png`
-4. Rebuild or redeploy the site. No code changes needed — the About page globs this folder at build time.
+Center column is the personal bio from `src/data/profile.ts`.
 
-## Optional captions
-
-Create `captions.json` in this folder to label photos by filename:
-
-```json
-{
-  "delhi-family.jpg": "Family in Delhi",
-  "boulder-hike.webp": "Trail near Boulder"
-}
-```
-
-Filenames are matched exactly (including extension). Photos without an entry still show; the alt text falls back to the filename.
-
-## Notes
-
-- Do not put the portrait here — the About page already uses `/images/portrait.jpg`.
-- Keep originals reasonably sized (roughly under ~2 MB each) for faster loads.
-- This `README.md` and `captions.json` are ignored by the gallery glob.
+Replace any of these files in place and redeploy to update the page. Keep filenames stable unless you also update `src/pages/about/index.astro`.
