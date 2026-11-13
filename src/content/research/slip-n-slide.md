@@ -3,7 +3,8 @@ title: SLIP 'n SLIDE
 subtitle: Small-satellite / space-systems concept
 summary: Editable placeholder for the SLIP 'n SLIDE project. Replace this summary, status, imagery, and sections with verified mission or concept details before public launch — no invented results, partners, or performance claims.
 order: 4
-featured: true
+featured: false
+listed: false
 placeholder: true
 theme: Small Satellites & Space Systems
 status: Placeholder

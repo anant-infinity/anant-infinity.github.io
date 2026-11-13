@@ -2,15 +2,16 @@
 title: DAXSS
 subtitle: Dual-zone Aperture X-ray Solar Spectrometer (MinXSS-3)
 summary: Soft X-ray spectral observations used for flare-onset and HOPE analysis, active-region abundance studies, and related solar SXR irradiance science.
-order: 10
+order: 5
 featured: false
+listed: true
 placeholder: false
 theme: Solar X-ray Instrumentation
-status: Flown
+status: Active
 image: /images/research/daxss.svg
 collaborators: []
 funding:
-  - "DAXSS Extended Mission for New Studies of Solar Active Region Abundance and Thermosphere Density Variations (per CV grant listing)"
+  - "DAXSS Extended Mission for New Studies of Solar Active Region Abundance and Thermosphere Density Variations in 2025–2026 — PI: Thomas N. Woods; Role: Postdoctoral Researcher; Amount: $49,000; NASA Heliophysics Division"
 ---
 
 ## Overview

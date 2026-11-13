@@ -5,10 +5,12 @@ import OrbitalBackdrop from '../../components/OrbitalBackdrop.astro';
 
 export async function getStaticPaths() {
   const research = await getCollection('research');
-  return research.map((project) => ({
-    params: { slug: project.id },
-    props: { project },
-  }));
+  return research
+    .filter((project) => project.data.listed !== false)
+    .map((project) => ({
+      params: { slug: project.id },
+      props: { project },
+    }));
 }
 
 const { project } = Astro.props;

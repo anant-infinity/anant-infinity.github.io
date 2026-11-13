@@ -1,21 +1,22 @@
 ---
-title: Compact Hard X-ray Instrument
-subtitle: High-energy solar photometer & spectrometer concepts
-summary: Compact hard X-ray / high-energy solar instrumentation development connected to SEUSHI photon-counting SXR spectroscopy and related space-weather photometer concepts, including an awarded LASP IRD hard X-ray photometer effort.
-order: 3
+title: Hard X-Ray Photometer for Space Weather Applications
+subtitle: Compact hard X-ray instrument · LASP IRD 2026–27
+summary: PI-led LASP IRD effort developing a compact hard X-ray photometer for space-weather applications, connected to SEUSHI photon-counting SXR spectroscopy and related high-energy solar instrumentation.
+order: 1
 featured: true
+listed: true
 placeholder: false
 theme: Solar X-ray Instrumentation
 status: Active
 image: /images/research/hard-xray.svg
 collaborators: []
 funding:
-  - "Hard X-Ray Photometer for Space Weather Applications — PI; LASP Internal Research and Development (IRD) 2026–27"
+  - "Hard X-Ray Photometer for Space Weather Applications — Principal Investigator (PI); Amount: $100,000; LASP Internal Research and Development (IRD) 2026–27 Program"
 ---
 
 ## Overview
 
-Hard X-ray and high-energy solar instrumentation work spans detector and spectrograph development for space-weather and flare science. Closely related flight hardware is documented in the SEUSHI instrument paper (multipinhole SXR imaging and photon-counting spectroscopy on a shared camera). The CV also lists an awarded LASP Internal Research and Development (IRD) effort, “Hard X-Ray Photometer for Space Weather Applications,” with Anant Telikicherla as PI.
+Hard X-ray and high-energy solar instrumentation work spans detector and spectrograph development for space-weather and flare science. Closely related flight hardware is documented in the SEUSHI instrument paper (multipinhole SXR imaging and photon-counting spectroscopy on a shared camera). An awarded LASP Internal Research and Development (IRD) 2026–27 effort, “Hard X-Ray Photometer for Space Weather Applications,” lists Anant Telikicherla as Principal Investigator (PI; $100,000 per CV).
 
 *[Editable placeholder note: replace this page’s imagery and expand technical detail as instrument documentation becomes available. Do not invent performance numbers.]*
 
