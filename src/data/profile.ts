@@ -10,9 +10,9 @@ export const profile = {
   intro:
     'Research scientist working on improving alerts for extreme solar eruptive storms.',
   bio: [
-    'Anant Telikicherla is a Research Scientist (RS-I) in the Solar & Stellar Division at the Laboratory for Atmospheric and Space Physics (LASP), University of Colorado Boulder.',
-    'His path spans aerospace engineering training at IIST, work connected to ISRO, graduate studies in Canada, and a Ph.D. at CU Boulder before joining LASP.',
-    'Research interests include solar high-energy radiation, hard X-ray instrumentation, and space-based observing systems. Replace or extend this bio with precise dates and roles as needed.',
+    'I grew up in Delhi, India, and completed my undergraduate studies at the Indian Institute of Space Science and Technology (IIST).',
+    'Along the way I interned at LASP and at Nanyang Technological University (NTU), earned an M.Sc. at the University of Alberta, and completed my Ph.D. at LASP / University of Colorado Boulder.',
+    'Outside of work I play guitar and am learning piano, enjoy tennis, squash, and soccer, and like spending time with family and friends, travelling, and watching movies.',
   ],
   authorMatch: [
     'Anant Telikicherla',
