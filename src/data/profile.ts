@@ -8,7 +8,7 @@ export const profile = {
   university: 'University of Colorado Boulder',
   eyebrow: 'Heliophysics · Space Weather · Space Instrumentation',
   intro:
-    'Research scientist working on improving alerts for extreme solar eruptive storms.',
+    'Developing space-based instruments and early-warning techniques to understand and predict extreme solar events.',
   bio: [
     'I grew up in Delhi, India, and completed my undergraduate studies at the Indian Institute of Space Science and Technology (IIST).',
     'Along the way I interned at LASP and at Nanyang Technological University (NTU), earned an M.Sc. at the University of Alberta, and completed my Ph.D. at LASP / University of Colorado Boulder.',

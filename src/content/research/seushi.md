@@ -2,8 +2,9 @@
 title: SEUSHI
 subtitle: Solar Extreme Ultraviolet Spectrograph and High-energy Imager
 summary: A compact multipinhole soft X-ray imager and grazing-incidence EUV spectrograph on a shared camera, aimed at flare/CME early alerts and coronal diagnostics. A technology-demonstration version is in development for the SDO-EVE calibration sounding rocket.
-order: 2
+order: 4
 featured: true
+listed: true
 placeholder: false
 theme: Space Weather Missions & Concepts
 status: In development
@@ -18,7 +19,8 @@ collaborators:
   - Andrew R. Jones
   - James P. Mason
   - Philip Chamberlin
-funding: []
+funding:
+  - "SDO-EVE Calibration Rocket (Woods 36.406) — Instrument calibration, integration, and testing; SEUSHI X-ray instrument characterization (2024–Present; in development)"
 ---
 
 ## Overview

@@ -1,9 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import OrbitalBackdrop from '../components/OrbitalBackdrop.astro';
+import FeaturedResearchCard from '../components/FeaturedResearchCard.astro';
 import { profile } from '../data/profile';
+import { homeFeaturedResearch } from '../data/research-portfolio';
 
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const baseTrim = base.replace(/\/$/, '');
 
 const coverLinks = [
   { href: `${base}research/`, label: 'Explore Research', primary: true },
@@ -11,6 +14,11 @@ const coverLinks = [
   { href: `${base}about/`, label: 'About', primary: false },
   { href: `${base}cv/`, label: 'CV', primary: false },
 ];
+
+const featuredHref = (entry: (typeof homeFeaturedResearch)[number]) => {
+  if (entry.href) return `${baseTrim}${entry.href}`;
+  return `${base}research/#${entry.id}`;
+};
 ---
 
 <BaseLayout variant="space">
@@ -62,6 +70,39 @@ const coverLinks = [
           </div>
         </figure>
       </div>
+    </div>
+  </section>
+
+  <section class="relative border-t border-border">
+    <div class="mx-auto max-w-[var(--max-content)] px-5 py-14 md:px-8 md:py-16">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="text-xs font-semibold tracking-[0.18em] text-solar uppercase">Research</p>
+          <h2 class="mt-1 font-heading text-xl font-semibold text-ink md:text-2xl">
+            Featured Research
+          </h2>
+        </div>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-0">
+        {
+          homeFeaturedResearch.map((entry) => (
+            <FeaturedResearchCard
+              title={entry.homeTitle ?? entry.title}
+              role={entry.homeRole ?? entry.role}
+              program={entry.homeProgram ?? entry.program}
+              summary={entry.summary}
+              href={featuredHref(entry)}
+            />
+          ))
+        }
+      </div>
+
+      <p class="mt-12">
+        <a href={`${base}research/`} class="text-sm font-medium text-solar hover:underline">
+          View All Research →
+        </a>
+      </p>
     </div>
   </section>
 </BaseLayout>

@@ -18,6 +18,8 @@ const research = defineCollection({
     summary: z.string(),
     order: z.number().default(99),
     featured: z.boolean().default(false),
+    /** When false, content remains in repo but is omitted from public routes/listings */
+    listed: z.boolean().default(true),
     placeholder: z.boolean().default(true),
     theme: z.enum(researchThemes),
     status: z.string().default('Active'),

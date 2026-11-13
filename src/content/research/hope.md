@@ -2,8 +2,9 @@
 title: HOPE
 subtitle: Hot Onset Precursor Event nowcasting
 summary: Statistical soft X-ray studies of flare onsets and nowcasting methods that use HOPE signatures for earlier flare alerts, including machine-learning extensions for high-impact flares.
-order: 1
+order: 3
 featured: true
+listed: true
 placeholder: false
 theme: Solar Flare Physics & Nowcasting
 status: Active
@@ -11,7 +12,8 @@ image: /images/research/hope.svg
 collaborators:
   - Thomas N. Woods
   - Bennet D. Schwab
-funding: []
+funding:
+  - "Flare Precursors as Predictors of Extreme Solar Events Using Multi-Wavelength Observations — PI: Bennet Schwab; Role: Postdoctoral Researcher; NASA Living With a Star (LWS) Science (Submitted/Pending per CV)"
 ---
 
 ## Overview
