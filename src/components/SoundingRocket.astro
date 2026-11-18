@@ -1,41 +1,41 @@
 ---
 /**
- * Minimal sounding-rocket silhouette for the homepage portrait.
- * Loops a gentle launch along the frame edge; static when reduced motion.
+ * Larger sounding-rocket silhouette for the homepage hero background.
+ * Gently crosses the full hero width behind content; static when reduced motion.
  */
 ---
 
 <div class="sounding-rocket" aria-hidden="true">
-  <div class="sounding-rocket__track">
+  <div class="sounding-rocket__flight">
     <svg
       class="sounding-rocket__craft"
       viewBox="0 0 40 120"
-      width="28"
-      height="84"
+      width="56"
+      height="168"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <!-- Nose cone -->
-      <path d="M20 4 L26 28 H14 Z" fill="currentColor" class="text-ink/85" />
+      <path d="M20 4 L27 30 H13 Z" fill="currentColor" class="text-ink/80" />
       <!-- Body -->
-      <rect x="14" y="28" width="12" height="52" rx="1.5" fill="currentColor" class="text-ink/70" />
+      <rect x="13" y="30" width="14" height="54" rx="1.75" fill="currentColor" class="text-ink/65" />
       <!-- Window / band -->
-      <rect x="16.5" y="38" width="7" height="4" rx="1" fill="currentColor" class="text-solar/80" />
-      <rect x="14" y="52" width="12" height="1.5" fill="currentColor" class="text-border" />
+      <rect x="16" y="40" width="8" height="4.5" rx="1.25" fill="currentColor" class="text-solar/75" />
+      <rect x="13" y="55" width="14" height="1.75" fill="currentColor" class="text-border" />
       <!-- Fins -->
-      <path d="M14 68 L6 88 L14 80 Z" fill="currentColor" class="text-ink/75" />
-      <path d="M26 68 L34 88 L26 80 Z" fill="currentColor" class="text-ink/75" />
+      <path d="M13 70 L4 92 L13 83 Z" fill="currentColor" class="text-ink/70" />
+      <path d="M27 70 L36 92 L27 83 Z" fill="currentColor" class="text-ink/70" />
       <!-- Exhaust plume -->
       <g class="sounding-rocket__plume">
         <path
-          d="M17 82 C16 92 14 100 20 112 C26 100 24 92 23 82 Z"
+          d="M16 86 C15 98 12 108 20 120 C28 108 25 98 24 86 Z"
           fill="currentColor"
-          class="text-solar/55"
+          class="text-solar/50"
         />
         <path
-          d="M18.5 82 C18 90 17 96 20 104 C23 96 22 90 21.5 82 Z"
+          d="M18 86 C17.5 96 16.5 104 20 112 C23.5 104 22.5 96 22 86 Z"
           fill="currentColor"
-          class="text-solar/85"
+          class="text-solar/80"
         />
       </g>
     </svg>
@@ -45,92 +45,110 @@
 <style>
   .sounding-rocket {
     position: absolute;
-    /* Left of the portrait frame so the launch path clears the face crop */
-    inset: -6% auto -4% -10%;
-    width: 22%;
-    min-width: 2.75rem;
-    max-width: 3.75rem;
+    inset: 0;
+    overflow: hidden;
     pointer-events: none;
-    z-index: 2;
+    z-index: 0;
     color: var(--color-ink);
   }
 
-  .sounding-rocket__track {
+  .sounding-rocket__flight {
     position: absolute;
-    inset: 0;
-    display: flex;
-    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .sounding-rocket__craft {
     position: absolute;
-    bottom: 4%;
-    transform-origin: center bottom;
-    animation: sounding-rocket-launch 8.5s cubic-bezier(0.33, 0.05, 0.25, 1) infinite;
-    filter: drop-shadow(0 0 6px color-mix(in oklab, var(--color-solar) 35%, transparent));
+    /* Nose-forward diagonal; starts off left, exits upper-right */
+    left: -8%;
+    bottom: 18%;
+    width: clamp(2.75rem, 5.5vw, 4.25rem);
+    height: auto;
+    opacity: 0;
+    transform-origin: center center;
+    /* Rotate so the rocket flies roughly left→right, slightly climbing */
+    transform: rotate(58deg) translate3d(0, 0, 0);
+    animation: sounding-rocket-cross 22s cubic-bezier(0.35, 0.05, 0.25, 1) infinite;
+    filter: drop-shadow(0 0 10px color-mix(in oklab, var(--color-solar) 28%, transparent));
   }
 
   .sounding-rocket__plume {
-    animation: sounding-rocket-plume 0.55s ease-in-out infinite alternate;
+    animation: sounding-rocket-plume 0.6s ease-in-out infinite alternate;
     transform-origin: center top;
   }
 
-  @keyframes sounding-rocket-launch {
+  @keyframes sounding-rocket-cross {
     0% {
       opacity: 0;
-      transform: translate3d(0, 8%, 0) scale(0.92);
+      left: -10%;
+      bottom: 22%;
+      transform: rotate(58deg) scale(0.92);
     }
-    8% {
-      opacity: 0.9;
-      transform: translate3d(2%, 0%, 0) scale(1);
+    6% {
+      opacity: 0.42;
     }
-    55% {
-      opacity: 0.95;
-      transform: translate3d(-4%, -78%, 0) scale(1);
+    18% {
+      opacity: 0.58;
+      left: 18%;
+      bottom: 38%;
+      transform: rotate(56deg) scale(1);
+    }
+    48% {
+      opacity: 0.62;
+      left: 52%;
+      bottom: 58%;
+      transform: rotate(54deg) scale(1);
     }
     78% {
-      opacity: 0.55;
-      transform: translate3d(-8%, -108%, 0) scale(0.96);
+      opacity: 0.35;
+      left: 88%;
+      bottom: 78%;
+      transform: rotate(52deg) scale(0.96);
     }
-    92%,
+    90%,
     100% {
       opacity: 0;
-      transform: translate3d(-10%, -120%, 0) scale(0.9);
+      left: 108%;
+      bottom: 88%;
+      transform: rotate(50deg) scale(0.9);
     }
   }
 
   @keyframes sounding-rocket-plume {
     from {
-      opacity: 0.65;
+      opacity: 0.6;
       transform: scaleY(0.88);
     }
     to {
       opacity: 1;
-      transform: scaleY(1.08);
+      transform: scaleY(1.1);
     }
   }
 
   @media (max-width: 639px) {
-    .sounding-rocket {
-      inset: -4% auto -2% -8%;
-      width: 18%;
-      min-width: 2.25rem;
-      opacity: 0.85;
+    .sounding-rocket__craft {
+      width: clamp(2.25rem, 9vw, 3.25rem);
+      opacity: 0;
+      animation-duration: 18s;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .sounding-rocket__craft {
       animation: none;
-      opacity: 0.55;
-      bottom: 18%;
-      transform: none;
+      opacity: 0.4;
+      left: 12%;
+      bottom: 62%;
+      transform: rotate(58deg);
       filter: none;
     }
 
     .sounding-rocket__plume {
       animation: none;
-      opacity: 0.5;
+      opacity: 0.45;
     }
   }
 </style>
