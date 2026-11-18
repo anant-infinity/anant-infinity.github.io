@@ -1,7 +1,8 @@
 ---
 /**
- * Homepage-only deep-space atmosphere: soft nebula wash + sparse star field
- * + a subtle orbiting satellite. Decorative; respects prefers-reduced-motion.
+ * Homepage-only deep-space atmosphere: soft nebula wash + sparse star field.
+ * Decorative; motion respects prefers-reduced-motion via global CSS + local rules.
+ * (Orbiting satellite lives on the SDO figure in index.astro.)
  */
 ---
 
@@ -62,38 +63,6 @@
       <circle cx="1180" cy="100" r="0.45" />
     </g>
   </svg>
-
-  <!-- Orbit sits upper-right so the path clears portrait/text; faint ring only -->
-  <div class="hero-space__orbit">
-    <div class="hero-space__orbit-ring"></div>
-    <div class="hero-space__orbit-arm">
-      <svg
-        class="hero-space__satellite"
-        viewBox="0 0 48 28"
-        width="36"
-        height="21"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <!-- Left solar panel -->
-        <rect x="1" y="9" width="12" height="10" rx="1" fill="currentColor" class="text-ink/45" />
-        <line x1="4" y1="9" x2="4" y2="19" stroke="currentColor" class="text-border" stroke-width="0.6" />
-        <line x1="7" y1="9" x2="7" y2="19" stroke="currentColor" class="text-border" stroke-width="0.6" />
-        <line x1="10" y1="9" x2="10" y2="19" stroke="currentColor" class="text-border" stroke-width="0.6" />
-        <!-- Right solar panel -->
-        <rect x="35" y="9" width="12" height="10" rx="1" fill="currentColor" class="text-ink/45" />
-        <line x1="38" y1="9" x2="38" y2="19" stroke="currentColor" class="text-border" stroke-width="0.6" />
-        <line x1="41" y1="9" x2="41" y2="19" stroke="currentColor" class="text-border" stroke-width="0.6" />
-        <line x1="44" y1="9" x2="44" y2="19" stroke="currentColor" class="text-border" stroke-width="0.6" />
-        <!-- Bus -->
-        <rect x="16" y="8" width="16" height="12" rx="2" fill="currentColor" class="text-ink/70" />
-        <rect x="20" y="11" width="8" height="3.5" rx="0.8" fill="currentColor" class="text-solar/65" />
-        <!-- Antenna -->
-        <line x1="24" y1="8" x2="24" y2="2" stroke="currentColor" class="text-ink/55" stroke-width="1" />
-        <circle cx="24" cy="2" r="1.4" fill="currentColor" class="text-solar/70" />
-      </svg>
-    </div>
-  </div>
 </div>
 
 <style>
@@ -151,43 +120,6 @@
     animation: hero-star-twinkle 11s ease-in-out infinite alternate-reverse;
   }
 
-  /* Upper-right elliptical orbit — clear of portrait (left) and name block (center) */
-  .hero-space__orbit {
-    position: absolute;
-    top: -4%;
-    right: -2%;
-    width: min(42vw, 22rem);
-    height: min(28vw, 14rem);
-    opacity: 0.7;
-  }
-
-  .hero-space__orbit-ring {
-    position: absolute;
-    inset: 0;
-    border: 1px solid color-mix(in oklab, var(--color-border) 55%, transparent);
-    border-radius: 50%;
-    opacity: 0.35;
-  }
-
-  .hero-space__orbit-arm {
-    position: absolute;
-    inset: 0;
-    animation: hero-satellite-orbit 36s linear infinite;
-  }
-
-  .hero-space__satellite {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: clamp(1.35rem, 2.4vw, 2rem);
-    height: auto;
-    margin-left: -0.75rem;
-    color: var(--color-ink);
-    filter: drop-shadow(0 0 4px color-mix(in oklab, var(--color-solar) 22%, transparent));
-    /* Keep craft roughly level as the arm rotates */
-    animation: hero-satellite-level 36s linear infinite;
-  }
-
   @keyframes hero-star-twinkle {
     from {
       opacity: 0.45;
@@ -197,54 +129,11 @@
     }
   }
 
-  @keyframes hero-satellite-orbit {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes hero-satellite-level {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(-360deg);
-    }
-  }
-
-  @media (max-width: 639px) {
-    .hero-space__orbit {
-      top: -6%;
-      right: -8%;
-      width: min(58vw, 14rem);
-      height: min(36vw, 9rem);
-      opacity: 0.55;
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
     .hero-space__star-layer--near,
     .hero-space__star-layer--far {
       animation: none;
       opacity: 0.7;
-    }
-
-    .hero-space__orbit-arm,
-    .hero-space__satellite {
-      animation: none;
-    }
-
-    .hero-space__orbit-arm {
-      transform: rotate(-28deg);
-    }
-
-    .hero-space__satellite {
-      transform: rotate(28deg);
-      filter: none;
-      opacity: 0.65;
     }
   }
 </style>
