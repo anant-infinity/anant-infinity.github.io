@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-hidden="true">
+  <title>University of Colorado Boulder</title>
+  <rect width="64" height="64" rx="10" fill="#000000"/>
+  <rect x="4" y="4" width="56" height="56" rx="8" fill="none" stroke="#CFB87C" stroke-width="3"/>
+  <path fill="#CFB87C" d="M18 44V20h8.2c6.8 0 11.2 3.8 11.2 10.2S33 40.4 26.2 40.4H22.4V44H18zm4.4-7.4h3.6c4 0 6.6-2 6.6-6.4s-2.6-6.4-6.6-6.4h-3.6v12.8zM44.2 44.4c-6.6 0-11-4.6-11-12.2S37.6 20 44.2 20s11 4.6 11 12.2-4.4 12.2-11 12.2zm0-3.8c3.8 0 6.4-3 6.4-8.4s-2.6-8.4-6.4-8.4-6.4 3-6.4 8.4 2.6 8.4 6.4 8.4z"/>
+</svg>

@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
 import { profile } from '../../data/profile';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <BaseLayout title="Contact" description={`Contact ${profile.shortName}.`} variant="space">
@@ -9,75 +11,64 @@ import { profile } from '../../data/profile';
     <SectionHeading
       eyebrow="Contact"
       title="Get in touch"
-      description="Affiliation and public profiles."
+      description="Affiliation details, email, and public profiles."
     />
 
-    <div class="grid max-w-3xl gap-6">
-      <div class="rounded-sm border border-border bg-surface/60 p-5">
+    <div class="grid max-w-4xl gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] md:items-stretch">
+      <div class="rounded-sm border border-border bg-surface/60 p-5 md:p-6">
         <h2 class="font-heading text-lg font-semibold text-ink">Affiliation</h2>
         <p class="mt-2 text-muted">{profile.title}</p>
         <p class="text-muted">{profile.division}</p>
         <p class="text-muted">{profile.affiliation}</p>
         <p class="text-muted">{profile.university}</p>
         <p class="mt-2 text-sm text-muted">{profile.location}</p>
+
+        <div class="mt-6 border-t border-border pt-5">
+          <h2 class="font-heading text-lg font-semibold text-ink">Email</h2>
+          <p class="mt-2">
+            {
+              profile.links.email ? (
+                <a class="text-solar hover:underline" href={`mailto:${profile.links.email}`}>
+                  {profile.links.email}
+                </a>
+              ) : (
+                <span class="text-muted">placeholder — set in src/data/profile.ts</span>
+              )
+            }
+          </p>
+        </div>
       </div>
 
-      <ul class="space-y-3 text-base">
-        <li>
-          <span class="font-medium text-ink">Email:</span>
+      <div class="rounded-sm border border-border bg-surface/60 p-5 md:p-6">
+        <h2 class="font-heading text-lg font-semibold text-ink">Profiles & affiliations</h2>
+        <p class="mt-1 text-sm text-muted">Open a site via its logo.</p>
+        <ul class="mt-5 grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4">
           {
-            profile.links.email ? (
-              <a class="text-solar hover:underline" href={`mailto:${profile.links.email}`}>
-                {profile.links.email}
-              </a>
-            ) : (
-              <span class="text-muted">placeholder — set in src/data/profile.ts</span>
-            )
+            profile.contactLogos.map((item) => (
+              <li>
+                <a
+                  class="group flex aspect-square items-center justify-center rounded-sm border border-border bg-bg/50 p-3 transition hover:border-solar/60 hover:bg-bg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solar"
+                  href={item.href}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label={item.label}
+                  title={item.label}
+                >
+                  <img
+                    src={`${base}${item.logo}`}
+                    alt=""
+                    width="48"
+                    height="48"
+                    class="h-10 w-10 object-contain transition group-hover:scale-105 sm:h-11 sm:w-11"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+              </li>
+            ))
           }
-        </li>
-        <li>
-          <span class="font-medium text-ink">LASP:</span>
-          <a class="text-solar hover:underline" href={profile.links.lasp} rel="noopener noreferrer" target="_blank">
-            People page
-          </a>
-        </li>
-        <li>
-          <span class="font-medium text-ink">Google Scholar:</span>
-          <a class="text-solar hover:underline" href={profile.links.scholar} rel="noopener noreferrer" target="_blank">
-            Citations profile
-          </a>
-        </li>
-        <li>
-          <span class="font-medium text-ink">LinkedIn:</span>
-          <a class="text-solar hover:underline" href={profile.links.linkedin} rel="noopener noreferrer" target="_blank">
-            Profile
-          </a>
-        </li>
-        <li>
-          <span class="font-medium text-ink">ORCID:</span>
-          {
-            profile.links.orcid ? (
-              <a class="text-solar hover:underline" href={profile.links.orcid} rel="noopener noreferrer" target="_blank">
-                {profile.links.orcid}
-              </a>
-            ) : (
-              <span class="text-muted">placeholder</span>
-            )
-          }
-        </li>
-        <li>
-          <span class="font-medium text-ink">GitHub:</span>
-          {
-            profile.links.github ? (
-              <a class="text-solar hover:underline" href={profile.links.github} rel="noopener noreferrer" target="_blank">
-                {profile.links.github}
-              </a>
-            ) : (
-              <span class="text-muted">placeholder</span>
-            )
-          }
-        </li>
-      </ul>
+        </ul>
+      </div>
     </div>
   </section>
 </BaseLayout>
