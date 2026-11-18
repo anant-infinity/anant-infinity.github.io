@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
-const site = process.env.SITE_URL || 'https://anant-infinity.github.io';
+const site = process.env.SITE_URL || 'https://infinitelyanant.com';
 const base = process.env.BASE_PATH || '/';
 
 // https://astro.build/config

@@ -6,6 +6,12 @@ export const profile = {
   division: 'Solar & Stellar Division',
   affiliation: 'Laboratory for Atmospheric and Space Physics (LASP)',
   university: 'University of Colorado Boulder',
+  website: 'https://infinitelyanant.com',
+  /** Homepage `<title>` (SEO); visible H1 still uses `name`. */
+  homeTitle: 'Anant Telikicherla, Ph.D. | Solar Physicist & Research Scientist',
+  /** Default meta description for homepage / fallback SEO. */
+  seoDescription:
+    'Solar physicist and research scientist at LASP, University of Colorado Boulder, specializing in solar physics, flare nowcasting, space weather, and X-ray instrumentation.',
   eyebrow: 'Heliophysics · Space Weather · Space Instrumentation',
   intro:
     'Developing space-based instruments and early-warning techniques to understand and predict extreme solar events.',
