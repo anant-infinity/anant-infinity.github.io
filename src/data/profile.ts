@@ -42,12 +42,6 @@ export const profile = {
       logo: '/images/logos/lasp.svg',
     },
     {
-      id: 'cu',
-      label: 'University of Colorado Boulder',
-      href: 'https://www.colorado.edu/',
-      logo: '/images/logos/cu-boulder.svg',
-    },
-    {
       id: 'orcid',
       label: 'ORCID profile',
       href: 'https://orcid.org/0000-0001-5047-5133',
