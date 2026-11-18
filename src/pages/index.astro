@@ -90,8 +90,8 @@ const featuredHref = (entry: (typeof homeFeaturedResearch)[number]) => {
                 <svg
                   class="hero-sdo__satellite"
                   viewBox="0 0 48 28"
-                  width="52"
-                  height="30"
+                  width="60"
+                  height="35"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -274,9 +274,9 @@ const featuredHref = (entry: (typeof homeFeaturedResearch)[number]) => {
     position: absolute;
     top: 0;
     left: 50%;
-    width: clamp(2.15rem, 3.8vw, 3.15rem);
+    width: clamp(2.45rem, 4.2vw, 3.55rem);
     height: auto;
-    margin-left: calc(clamp(2.15rem, 3.8vw, 3.15rem) / -2);
+    margin-left: calc(clamp(2.45rem, 4.2vw, 3.55rem) / -2);
     color: var(--color-ink);
     filter: drop-shadow(0 0 6px color-mix(in oklab, var(--color-solar) 28%, transparent));
     animation: hero-sdo-satellite-level 32s linear infinite;
@@ -302,8 +302,8 @@ const featuredHref = (entry: (typeof homeFeaturedResearch)[number]) => {
 
   @media (max-width: 1023px) {
     .hero-sdo__satellite {
-      width: clamp(1.85rem, 6vw, 2.5rem);
-      margin-left: calc(clamp(1.85rem, 6vw, 2.5rem) / -2);
+      width: clamp(2.1rem, 6.8vw, 2.85rem);
+      margin-left: calc(clamp(2.1rem, 6.8vw, 2.85rem) / -2);
     }
   }
 
