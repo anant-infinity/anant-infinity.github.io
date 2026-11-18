@@ -1,0 +1,138 @@
+---
+/**
+ * Homepage-only deep-space atmosphere: soft nebula wash + sparse star field.
+ * Decorative; motion respects prefers-reduced-motion via global CSS + local rules.
+ */
+---
+
+<div class="hero-space pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+  <div class="hero-space__nebula hero-space__nebula--a"></div>
+  <div class="hero-space__nebula hero-space__nebula--b"></div>
+  <svg class="hero-space__stars" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+    <g class="hero-space__star-layer hero-space__star-layer--near" fill="currentColor">
+      <circle cx="64" cy="72" r="1.1" />
+      <circle cx="188" cy="140" r="0.8" />
+      <circle cx="312" cy="48" r="1.3" />
+      <circle cx="420" cy="210" r="0.7" />
+      <circle cx="510" cy="96" r="1.0" />
+      <circle cx="640" cy="180" r="0.9" />
+      <circle cx="760" cy="64" r="1.2" />
+      <circle cx="880" cy="150" r="0.75" />
+      <circle cx="980" cy="88" r="1.05" />
+      <circle cx="1105" cy="200" r="0.85" />
+      <circle cx="120" cy="320" r="0.7" />
+      <circle cx="260" cy="410" r="1.0" />
+      <circle cx="390" cy="360" r="0.8" />
+      <circle cx="560" cy="450" r="1.15" />
+      <circle cx="710" cy="380" r="0.7" />
+      <circle cx="850" cy="470" r="0.95" />
+      <circle cx="1000" cy="340" r="0.8" />
+      <circle cx="1140" cy="420" r="1.05" />
+      <circle cx="90" cy="560" r="0.9" />
+      <circle cx="230" cy="640" r="0.75" />
+      <circle cx="450" cy="600" r="1.1" />
+      <circle cx="620" cy="700" r="0.8" />
+      <circle cx="790" cy="620" r="0.95" />
+      <circle cx="940" cy="680" r="0.7" />
+      <circle cx="1080" cy="580" r="1.0" />
+      <circle cx="160" cy="740" r="0.85" />
+      <circle cx="340" cy="720" r="0.7" />
+      <circle cx="1040" cy="760" r="0.9" />
+    </g>
+    <g class="hero-space__star-layer hero-space__star-layer--far" fill="currentColor" opacity="0.55">
+      <circle cx="40" cy="220" r="0.55" />
+      <circle cx="150" cy="40" r="0.5" />
+      <circle cx="280" cy="260" r="0.6" />
+      <circle cx="470" cy="30" r="0.5" />
+      <circle cx="590" cy="280" r="0.55" />
+      <circle cx="700" cy="120" r="0.45" />
+      <circle cx="820" cy="300" r="0.55" />
+      <circle cx="960" cy="40" r="0.5" />
+      <circle cx="1120" cy="280" r="0.6" />
+      <circle cx="50" cy="480" r="0.5" />
+      <circle cx="200" cy="520" r="0.45" />
+      <circle cx="360" cy="500" r="0.55" />
+      <circle cx="520" cy="560" r="0.5" />
+      <circle cx="680" cy="520" r="0.45" />
+      <circle cx="860" cy="560" r="0.55" />
+      <circle cx="1020" cy="500" r="0.5" />
+      <circle cx="1160" cy="640" r="0.55" />
+      <circle cx="300" cy="760" r="0.45" />
+      <circle cx="740" cy="740" r="0.5" />
+      <circle cx="1180" cy="100" r="0.45" />
+    </g>
+  </svg>
+</div>
+
+<style>
+  .hero-space {
+    z-index: 0;
+  }
+
+  .hero-space__nebula {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(48px);
+    opacity: 0.34;
+  }
+
+  .hero-space__nebula--a {
+    top: -12%;
+    left: -8%;
+    width: min(52vw, 28rem);
+    height: min(52vw, 28rem);
+    background: radial-gradient(
+      circle at 40% 40%,
+      color-mix(in oklab, var(--color-solar) 42%, transparent) 0%,
+      color-mix(in oklab, #426b8c 28%, transparent) 42%,
+      transparent 72%
+    );
+  }
+
+  .hero-space__nebula--b {
+    right: -10%;
+    bottom: -18%;
+    width: min(58vw, 32rem);
+    height: min(48vw, 26rem);
+    background: radial-gradient(
+      circle at 55% 45%,
+      color-mix(in oklab, #5b7ea3 38%, transparent) 0%,
+      color-mix(in oklab, var(--color-accent) 18%, transparent) 48%,
+      transparent 74%
+    );
+    opacity: 0.28;
+  }
+
+  .hero-space__stars {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    color: color-mix(in oklab, var(--color-ink) 78%, transparent);
+  }
+
+  .hero-space__star-layer--near {
+    animation: hero-star-twinkle 7.5s ease-in-out infinite alternate;
+  }
+
+  .hero-space__star-layer--far {
+    animation: hero-star-twinkle 11s ease-in-out infinite alternate-reverse;
+  }
+
+  @keyframes hero-star-twinkle {
+    from {
+      opacity: 0.45;
+    }
+    to {
+      opacity: 0.95;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-space__star-layer--near,
+    .hero-space__star-layer--far {
+      animation: none;
+      opacity: 0.7;
+    }
+  }
+</style>
