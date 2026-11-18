@@ -24,13 +24,60 @@ export const profile = {
   ],
   links: {
     lasp: 'https://lasp.colorado.edu/people/anant-telikicherla-2/',
+    university: 'https://www.colorado.edu/',
     scholar:
       'https://scholar.google.com/citations?hl=en&user=-hmmfE8AAAAJ&view_op=list_works&sortby=pubdate',
     linkedin: 'https://www.linkedin.com/in/anantkandala/',
     orcid: 'https://orcid.org/0000-0001-5047-5133',
     email: 'anant.telikicherla@lasp.colorado.edu',
     github: 'https://github.com/anant-infinity',
+    instagram: 'https://www.instagram.com/infinitely.anant/',
   },
+  /** Clickable logos shown on the Contact page (affiliations + public profiles). */
+  contactLogos: [
+    {
+      id: 'lasp',
+      label: 'LASP people page',
+      href: 'https://lasp.colorado.edu/people/anant-telikicherla-2/',
+      logo: '/images/logos/lasp.svg',
+    },
+    {
+      id: 'cu',
+      label: 'University of Colorado Boulder',
+      href: 'https://www.colorado.edu/',
+      logo: '/images/logos/cu-boulder.svg',
+    },
+    {
+      id: 'orcid',
+      label: 'ORCID profile',
+      href: 'https://orcid.org/0000-0001-5047-5133',
+      logo: '/images/logos/orcid.svg',
+    },
+    {
+      id: 'github',
+      label: 'GitHub profile',
+      href: 'https://github.com/anant-infinity',
+      logo: '/images/logos/github.svg',
+    },
+    {
+      id: 'scholar',
+      label: 'Google Scholar profile',
+      href: 'https://scholar.google.com/citations?hl=en&user=-hmmfE8AAAAJ&view_op=list_works&sortby=pubdate',
+      logo: '/images/logos/google-scholar.svg',
+    },
+    {
+      id: 'linkedin',
+      label: 'LinkedIn profile',
+      href: 'https://www.linkedin.com/in/anantkandala/',
+      logo: '/images/logos/linkedin.svg',
+    },
+    {
+      id: 'instagram',
+      label: 'Instagram — infinitely.anant',
+      href: 'https://www.instagram.com/infinitely.anant/',
+      logo: '/images/logos/instagram.svg',
+    },
+  ],
   cv: {
     available: true,
     path: '/cv/anant-telikicherla-cv.pdf',
