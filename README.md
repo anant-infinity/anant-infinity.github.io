@@ -1,6 +1,6 @@
 # Anant Telikicherla — academic site
 
-Astro + TypeScript + Tailwind static site for GitHub Pages (`https://anant-infinity.github.io`).
+Astro + TypeScript + Tailwind static site for GitHub Pages, served at [`https://infinitelyanant.com`](https://infinitelyanant.com) (repo: `anant-infinity.github.io`).
 
 ## Run locally
 
@@ -14,7 +14,7 @@ npm run preview
 GitHub Pages production build:
 
 ```bash
-SITE_URL=https://anant-infinity.github.io BASE_PATH=/ npm run build
+SITE_URL=https://infinitelyanant.com BASE_PATH=/ npm run build
 ```
 
 ## Edit content

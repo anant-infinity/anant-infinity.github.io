@@ -38,7 +38,8 @@ jobs:
           if [ -n "${{ vars.SITE_URL }}" ]; then
             SITE_URL="${{ vars.SITE_URL }}"
           else
-            SITE_URL="https://${OWNER}.github.io"
+            # User-site repo with custom domain (CNAME in public/)
+            SITE_URL="https://infinitelyanant.com"
           fi
           if [ -n "${{ vars.BASE_PATH }}" ]; then
             BASE_PATH="${{ vars.BASE_PATH }}"
