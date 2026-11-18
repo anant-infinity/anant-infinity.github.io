@@ -24,7 +24,7 @@ const intro =
         <h2 class="mt-1 font-heading text-xl font-semibold text-ink md:text-2xl">
           Current Research
         </h2>
-        <div class="mt-8">
+        <div class="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {
             currentResearch.map((entry) => (
               <PortfolioCard
@@ -35,7 +35,6 @@ const intro =
                 years={entry.years}
                 summary={entry.summary}
                 href={entry.href}
-                amount={entry.amount}
               />
             ))
           }
@@ -47,7 +46,7 @@ const intro =
         <h2 class="mt-1 font-heading text-xl font-semibold text-ink md:text-2xl">
           Past Research & Missions
         </h2>
-        <div class="mt-8">
+        <div class="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {
             pastResearch.map((entry) => (
               <PortfolioCard
@@ -58,7 +57,6 @@ const intro =
                 years={entry.years}
                 summary={entry.summary}
                 href={entry.href}
-                amount={entry.amount}
               />
             ))
           }

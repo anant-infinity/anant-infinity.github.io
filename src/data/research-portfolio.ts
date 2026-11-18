@@ -16,8 +16,6 @@ export type PortfolioEntry = {
   summary: string;
   /** External Learn More URL (DOI, mission, or official lab page) */
   href?: string;
-  /** Awarded amounts only when listed on the public CV */
-  amount?: string;
   /** Homepage Featured Research (max 3) */
   homeFeatured?: boolean;
   homeFeaturedOrder?: number;
@@ -29,7 +27,7 @@ export type PortfolioEntry = {
 
 /**
  * Current Research — PI first, then other current programs/missions.
- * H-TIDeS and LWS entries are Submitted/Pending on the CV (not awarded Co-I roles).
+ * NG-SXIS (H-TIDeS) and LWS / HOPE are omitted for now (to be re-added later).
  */
 export const currentResearch: PortfolioEntry[] = [
   {
@@ -38,7 +36,6 @@ export const currentResearch: PortfolioEntry[] = [
     role: 'Principal Investigator (PI)',
     program: 'LASP Internal Research and Development (IRD)',
     years: '2026–2027',
-    amount: '$100,000',
     summary:
       'First PI-led effort developing a compact hard X-ray photometer for space-weather applications under the LASP IRD 2026–27 program.',
     homeFeatured: true,
@@ -46,35 +43,6 @@ export const currentResearch: PortfolioEntry[] = [
     homeTitle: 'Compact Hard X-ray Instrument',
     homeRole: 'PI',
     homeProgram: 'LASP IRD',
-  },
-  {
-    id: 'ng-sxis',
-    title: 'Next Generation Solar X-ray Imaging Spectrometer (NG-SXIS)',
-    role: 'Postdoctoral Researcher',
-    program: 'NASA H-TIDeS',
-    years: 'Submitted/Pending',
-    summary:
-      'Compact next-generation solar X-ray imaging spectrometer concept for near-real-time space-weather alerts (PI: Andrew Jones; NASA Heliophysics Technology and Instrument Development for Science).',
-    homeFeatured: true,
-    homeFeaturedOrder: 2,
-    homeTitle: 'Next-Gen Solar X-ray Spectrometer',
-    homeRole: 'Postdoctoral Researcher',
-    homeProgram: 'NASA H-TIDeS',
-  },
-  {
-    id: 'hope-lws',
-    title: 'HOPE Solar Flare Nowcasting',
-    role: 'Postdoctoral Researcher',
-    program: 'NASA Living With a Star (LWS) Science',
-    years: 'Submitted/Pending',
-    summary:
-      'Hot Onset Precursor Event (HOPE) flare-onset physics and nowcasting methods, including a submitted/pending NASA LWS Science proposal on flare precursors as predictors of extreme solar events (PI: Bennet Schwab).',
-    href: 'https://doi.org/10.3847/1538-4357/ae0705',
-    homeFeatured: true,
-    homeFeaturedOrder: 3,
-    homeTitle: 'Solar Flare Nowcasting',
-    homeRole: 'Postdoctoral Researcher',
-    homeProgram: 'NASA LWS',
   },
   {
     id: 'seushi',
@@ -85,6 +53,11 @@ export const currentResearch: PortfolioEntry[] = [
     summary:
       'Solar Extreme Ultraviolet Spectrograph and High-energy Imager: multipinhole soft X-ray imaging and grazing-incidence EUV spectroscopy for flare/CME diagnostics, with a technology demonstration in development for the SDO-EVE calibration rocket.',
     href: 'https://doi.org/10.3847/1538-4357/ae74ce',
+    homeFeatured: true,
+    homeFeaturedOrder: 2,
+    homeTitle: 'SEUSHI',
+    homeRole: 'Instrument calibration & testing',
+    homeProgram: 'NASA SDO-EVE Rocket',
   },
   {
     id: 'daxss-extended',
@@ -92,10 +65,14 @@ export const currentResearch: PortfolioEntry[] = [
     role: 'Postdoctoral Researcher',
     program: 'NASA Heliophysics Division',
     years: '2025–2026',
-    amount: '$49,000',
     summary:
       'Awarded DAXSS extended mission for new studies of solar active-region abundance and thermosphere density variations (PI: Thomas N. Woods), continuing soft X-ray spectral analysis from the flown MinXSS / DAXSS instrument.',
     href: 'https://doi.org/10.3847/1538-4357/acef13',
+    homeFeatured: true,
+    homeFeaturedOrder: 3,
+    homeTitle: 'DAXSS Extended Mission',
+    homeRole: 'Postdoctoral Researcher',
+    homeProgram: 'NASA Heliophysics',
   },
 ];
 
@@ -111,7 +88,6 @@ export const pastResearch: PortfolioEntry[] = [
     role: 'Instrument Lead / Student Lead',
     program: 'Canadian Space Agency FAST 2023 (Koehler 46.402)',
     years: '2022–2024',
-    amount: '$150,000 CAD',
     summary:
       'Payload for Energetic Particle Precipitation Education and Research eXperiment: particle-detector instrument development, integration, and testing; flown 13 August 2024 (PI: David Milling).',
     href: 'https://www.nasa.gov/centers-and-facilities/wallops/this-rocks-nasa-is-sending-student-science-to-space/',
