@@ -6,7 +6,7 @@ import OrbitalBackdrop from '../../components/OrbitalBackdrop.astro';
 import { currentResearch, pastResearch } from '../../data/research-portfolio';
 
 const intro =
-  'My research focuses on solar eruptive events, space-based X-ray instrumentation, and the development of techniques for improving space-weather forecasting and early warning. I contribute to NASA-funded research programs and space missions, with a particular emphasis on developing scientific instruments and translating solar observations into actionable space-weather information.';
+  'My research focuses on solar eruptive events, space-based X-ray instrumentation, and techniques for improving space-weather forecasting and early warning. I contribute to NASA-funded research programs and space missions, working across both the engineering design and scientific analysis of space instruments—and translating solar observations into actionable space-weather information.';
 ---
 
 <BaseLayout
@@ -17,7 +17,8 @@ const intro =
   <section class="relative overflow-hidden">
     <OrbitalBackdrop />
     <div class="relative mx-auto max-w-[var(--max-content)] px-5 py-12 md:px-8 md:py-16">
-      <SectionHeading eyebrow="Research" title="Research" description={intro} />
+      <SectionHeading eyebrow="Research" title="Research" />
+      <p class="-mt-5 mb-8 text-base leading-relaxed text-muted md:text-lg">{intro}</p>
 
       <div class="mt-14">
         <p class="text-xs font-semibold tracking-[0.18em] text-solar uppercase">Current</p>
