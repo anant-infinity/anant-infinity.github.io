@@ -11,34 +11,63 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <SectionHeading
       eyebrow="Contact"
       title="Get in touch"
-      description="Reach out through these profiles and affiliations."
+      description="Affiliation details, email, and public profiles."
     />
 
-    <ul class="mt-2 grid max-w-xl grid-cols-3 gap-3 sm:gap-4">
-      {
-        profile.contactLogos.map((item) => (
-          <li>
-            <a
-              class="group flex aspect-square items-center justify-center rounded-sm border border-border bg-surface/60 p-3 transition hover:border-solar/60 hover:bg-bg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solar sm:p-4"
-              href={item.href}
-              rel="noopener noreferrer"
-              target="_blank"
-              aria-label={item.label}
-              title={item.label}
-            >
-              <img
-                src={`${base}${item.logo}`}
-                alt=""
-                width="48"
-                height="48"
-                class="h-10 w-10 object-contain transition group-hover:scale-105 sm:h-12 sm:w-12"
-                loading="lazy"
-                decoding="async"
-              />
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+    <div class="grid max-w-4xl gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] md:items-stretch">
+      <div class="rounded-sm border border-border bg-surface/60 p-5 md:p-6">
+        <h2 class="font-heading text-lg font-semibold text-ink">Affiliation</h2>
+        <p class="mt-2 text-muted">{profile.title}</p>
+        <p class="text-muted">{profile.division}</p>
+        <p class="text-muted">{profile.affiliation}</p>
+        <p class="text-muted">{profile.university}</p>
+        <p class="mt-2 text-sm text-muted">{profile.location}</p>
+
+        <div class="mt-6 border-t border-border pt-5">
+          <h2 class="font-heading text-lg font-semibold text-ink">Email</h2>
+          <p class="mt-2">
+            {
+              profile.links.email ? (
+                <a class="text-solar hover:underline" href={`mailto:${profile.links.email}`}>
+                  {profile.links.email}
+                </a>
+              ) : (
+                <span class="text-muted">placeholder — set in src/data/profile.ts</span>
+              )
+            }
+          </p>
+        </div>
+      </div>
+
+      <div class="rounded-sm border border-border bg-surface/60 p-5 md:p-6">
+        <h2 class="font-heading text-lg font-semibold text-ink">Profiles & affiliations</h2>
+        <ul class="mt-5 grid grid-cols-3 gap-3">
+          {
+            profile.contactLogos.map((item) => (
+              <li>
+                <a
+                  class="group flex aspect-square items-center justify-center rounded-sm border border-border bg-bg/50 p-3 transition hover:border-solar/60 hover:bg-bg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solar"
+                  href={item.href}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label={item.label}
+                  title={item.label}
+                >
+                  <img
+                    src={`${base}${item.logo}`}
+                    alt=""
+                    width="48"
+                    height="48"
+                    class="h-10 w-10 object-contain transition group-hover:scale-105 sm:h-11 sm:w-11"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
   </section>
 </BaseLayout>
